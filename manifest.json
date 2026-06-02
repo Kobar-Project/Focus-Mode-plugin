@@ -1,0 +1,28 @@
+{
+  "id": "kobar.focusmode",
+  "name": "Focus Mode",
+  "version": "1.0.0",
+  "description": "Pomodoro-style focus timer to boost your productivity. (Plugin Edition)",
+  "author": "KoBar",
+  "entry": "index.js",
+  "icon": "hourglass_empty",
+  "categories": [
+    "Utility",
+    "Productivity"
+  ],
+  "isBeta": false,
+  "githubRepo": "Kobar-Project/Focus-Mode-plugin",
+  "languages": [
+    "de",
+    "ar",
+    "zh",
+    "fr",
+    "hi",
+    "en",
+    "es",
+    "ja",
+    "ru",
+    "tr"
+  ],
+  "versionNote": "Initial Release"
+}
