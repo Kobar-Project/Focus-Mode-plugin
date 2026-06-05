@@ -167,16 +167,56 @@ function useFocusStore() {
 
 // --- TooltipButton Mock ---
 const TooltipButton = ({ label, onClick, className, style, children, buttonRef }) => {
+    const internalRef = React.useRef(null);
+    const ref = buttonRef || internalRef;
+    const [visible, setVisible] = React.useState(false);
+    const [pos, setPos] = React.useState({ x: 0, y: 0, edgePosition: 'left' });
+
+    const handleMouseEnter = () => {
+        if (ref.current) {
+            const rect = ref.current.getBoundingClientRect();
+            const edgePosition = window.useAppStore?.getState().edgePosition || 'left';
+            const x = edgePosition === 'left' ? rect.left - 8 : rect.right + 8;
+            const y = rect.top + rect.height / 2;
+            setPos({ x, y, edgePosition });
+        }
+        setVisible(true);
+    };
+
+    const handleMouseLeave = () => setVisible(false);
+
     return (
-        <button
-            ref={buttonRef}
-            onClick={onClick}
-            className={`group relative ${className}`}
-            style={style}
-            title={label}
-        >
-            {children}
-        </button>
+        <>
+            <button
+                ref={ref}
+                onClick={(e) => {
+                    setVisible(false);
+                    if (onClick) onClick(e);
+                }}
+                onMouseEnter={handleMouseEnter}
+                onMouseLeave={handleMouseLeave}
+                className={`group relative ${className}`}
+                style={style}
+            >
+                {children}
+            </button>
+            {visible && label && window.ReactDOM && window.ReactDOM.createPortal(
+                <div
+                    className="fixed pointer-events-none whitespace-nowrap border rounded-lg py-1.5 px-3 shadow-lg text-xs font-semibold text-primary"
+                    style={{
+                        zIndex: 999999,
+                        backgroundColor: 'var(--theme-bg-base)',
+                        borderColor: 'var(--theme-border)',
+                        top: pos.y,
+                        left: pos.edgePosition === 'left' ? pos.x - 4 : pos.x,
+                        transform: pos.edgePosition === 'left' ? 'translate(-100%, -50%)' : 'translate(0%, -50%)',
+                    }}
+                >
+                    {label}
+                </div>,
+                document.body
+            )}
+        </>
     );
 };
 
@@ -279,10 +319,27 @@ const FocusPopupWidget = ({ onClose, anchorRect }) => {
     const [melodyDropdownOpen, setMelodyDropdownOpen] = React.useState(false);
     const audioPreviewRef = React.useRef(null);
 
-    const [localMin, setLocalMin] = React.useState(store.focusSettings.minutes);
-    const [localSec, setLocalSec] = React.useState(store.focusSettings.seconds);
-    const [localMelody, setLocalMelody] = React.useState(store.focusSettings.melody);
-    const [localLoop, setLocalLoop] = React.useState(store.focusSettings.loop);
+    const localMin = store.focusSettings.minutes;
+    const localSec = store.focusSettings.seconds;
+    const localMelody = store.focusSettings.melody;
+    const localLoop = store.focusSettings.loop;
+
+    const setLocalMin = (updater) => {
+        const val = typeof updater === 'function' ? updater(localMin) : updater;
+        focusStore.setState({ focusSettings: { ...store.focusSettings, minutes: val } });
+    };
+    const setLocalSec = (updater) => {
+        const val = typeof updater === 'function' ? updater(localSec) : updater;
+        focusStore.setState({ focusSettings: { ...store.focusSettings, seconds: val } });
+    };
+    const setLocalMelody = (updater) => {
+        const val = typeof updater === 'function' ? updater(localMelody) : updater;
+        focusStore.setState({ focusSettings: { ...store.focusSettings, melody: val } });
+    };
+    const setLocalLoop = (updater) => {
+        const val = typeof updater === 'function' ? updater(localLoop) : updater;
+        focusStore.setState({ focusSettings: { ...store.focusSettings, loop: val } });
+    };
 
     const popupRef = React.useRef(null);
 
@@ -317,27 +374,10 @@ const FocusPopupWidget = ({ onClose, anchorRect }) => {
     };
 
     const handleStart = () => {
-        focusStore.setState({
-            focusSettings: {
-                minutes: localMin,
-                seconds: localSec,
-                melody: localMelody,
-                loop: localLoop
-            }
-        });
         stopPreview();
         focusStore.startTimer();
         onClose();
     };
-
-    React.useEffect(() => {
-        if (!store.isFocusActive) {
-            setLocalMin(store.focusSettings.minutes);
-            setLocalSec(store.focusSettings.seconds);
-            setLocalMelody(store.focusSettings.melody);
-            setLocalLoop(store.focusSettings.loop);
-        }
-    }, [store.isFocusActive, store.focusSettings]);
 
     React.useEffect(() => {
         const handleClickOutside = (e) => {

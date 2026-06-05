@@ -1,7 +1,7 @@
 {
-  "id": "kobar.focusmode",
+  "id": "focus-mode-plugin",
   "name": "Focus Mode",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Pomodoro-style focus timer to boost your productivity. (Plugin Edition)",
   "author": "KoBar",
   "entry": "index.js",
@@ -24,5 +24,11 @@
     "ru",
     "tr"
   ],
-  "versionNote": "Initial Release"
+  "versionNote": "Updated plugin images.",
+  "image": "https://raw.githubusercontent.com/Kobar-Project/KoBar-Assets/main/Plugins%20images/Focus%20Mode/focusmode.png",
+  "storeImage": [
+    "https://raw.githubusercontent.com/Kobar-Project/KoBar-Assets/main/Plugins%20images/Focus%20Mode/Focus-Mode1.png",
+    "https://raw.githubusercontent.com/Kobar-Project/KoBar-Assets/main/Plugins%20images/Focus%20Mode/Focus-Mode2.png",
+    "https://raw.githubusercontent.com/Kobar-Project/KoBar-Assets/main/Plugins%20images/Focus%20Mode/Focus-Mode3.png"
+  ]
 }
