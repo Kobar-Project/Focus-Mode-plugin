@@ -499,7 +499,7 @@ const FocusPopupWidget = ({ onClose, anchorRect }) => {
     return (
         <div
             ref={popupRef}
-            className="w-64 rounded-xl border p-4 shadow-2xl pointer-events-auto animate-in fade-in zoom-in duration-200 overflow-visible"
+            className="w-[270px] rounded-xl border p-4 shadow-2xl pointer-events-auto animate-in fade-in zoom-in duration-200 overflow-visible"
             style={getPopupStyle()}
         >
             <div className="flex justify-between items-center mb-4">
@@ -509,7 +509,7 @@ const FocusPopupWidget = ({ onClose, anchorRect }) => {
                 </button>
             </div>
 
-            <div className="flex gap-4 mb-4">
+            <div className="flex gap-2 mb-4">
                 <div className="flex-1">
                     <label className="text-xs text-slate-400 mb-1 block">{t('minutes')}</label>
                     <div className="flex items-center border rounded overflow-hidden" style={{ borderColor: 'var(--theme-border)' }}>
@@ -522,15 +522,18 @@ const FocusPopupWidget = ({ onClose, anchorRect }) => {
                             <span className="material-symbols-outlined text-[14px]">remove</span>
                         </button>
                         <input
-                            type="number"
+                            type="text"
+                            inputMode="numeric"
+                            pattern="[0-9]*"
                             disabled={store.isFocusActive}
-                            value={localMin}
+                            value={localMin !== undefined ? String(localMin).padStart(2, '0') : '25'}
                             onChange={(e) => {
-                                let val = parseInt(e.target.value, 10);
+                                let val = parseInt(e.target.value.replace(/\D/g, ''), 10);
                                 if (isNaN(val)) val = 0;
                                 setLocalMin(Math.min(120, Math.max(0, val)));
                             }}
-                            className="flex-1 w-full text-center text-slate-200 text-sm py-1 tabular-nums bg-transparent outline-none focus:bg-primary/10 transition-colors disabled:opacity-50 [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none no-drag-region"
+                            className="flex-1 w-full text-center text-sm py-1 bg-transparent outline-none focus:bg-primary/10 transition-colors disabled:opacity-50 no-drag-region"
+                            style={{ color: 'white', minWidth: '40px' }}
                         />
                         <button
                             type="button"
@@ -554,15 +557,18 @@ const FocusPopupWidget = ({ onClose, anchorRect }) => {
                             <span className="material-symbols-outlined text-[14px]">remove</span>
                         </button>
                         <input
-                            type="number"
+                            type="text"
+                            inputMode="numeric"
+                            pattern="[0-9]*"
                             disabled={store.isFocusActive}
-                            value={localSec}
+                            value={localSec !== undefined ? String(localSec).padStart(2, '0') : '00'}
                             onChange={(e) => {
-                                let val = parseInt(e.target.value, 10);
+                                let val = parseInt(e.target.value.replace(/\D/g, ''), 10);
                                 if (isNaN(val)) val = 0;
                                 setLocalSec(Math.min(59, Math.max(0, val)));
                             }}
-                            className="flex-1 w-full text-center text-slate-200 text-sm py-1 tabular-nums bg-transparent outline-none focus:bg-primary/10 transition-colors disabled:opacity-50 [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none no-drag-region"
+                            className="flex-1 w-full text-center text-sm py-1 bg-transparent outline-none focus:bg-primary/10 transition-colors disabled:opacity-50 no-drag-region"
+                            style={{ color: 'white', minWidth: '40px' }}
                         />
                         <button
                             type="button"
