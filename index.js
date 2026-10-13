@@ -488,11 +488,11 @@
       "div",
       {
         ref: popupRef,
-        className: "w-[270px] rounded-xl border p-4 shadow-2xl pointer-events-auto animate-in fade-in zoom-in duration-200 overflow-visible",
-        style: getPopupStyle()
+        className: "w-[270px] rounded-xl border shadow-2xl pointer-events-auto animate-in fade-in zoom-in duration-200 overflow-visible",
+        style: { ...getPopupStyle(), boxSizing: "border-box", padding: 16, textAlign: "center" }
       },
-      /* @__PURE__ */ window.React.createElement("div", { className: "flex justify-between items-center mb-4" }, /* @__PURE__ */ window.React.createElement("h3", { className: "text-primary font-bold" }, t("focusMode")), /* @__PURE__ */ window.React.createElement("button", { onClick: onClose, className: "text-slate-400 hover:text-white transition-colors" }, /* @__PURE__ */ window.React.createElement("span", { className: "material-symbols-outlined text-[18px]" }, "close"))),
-      /* @__PURE__ */ window.React.createElement("div", { className: "flex gap-2 mb-4" }, /* @__PURE__ */ window.React.createElement("div", { className: "flex-1" }, /* @__PURE__ */ window.React.createElement("label", { className: "text-xs text-slate-400 mb-1 block" }, t("minutes")), /* @__PURE__ */ window.React.createElement("div", { className: "flex items-center border rounded overflow-hidden", style: { borderColor: "var(--theme-border)" } }, /* @__PURE__ */ window.React.createElement(
+      /* @__PURE__ */ window.React.createElement("div", { className: "relative flex justify-center items-center mb-4" }, /* @__PURE__ */ window.React.createElement("h3", { className: "text-primary font-bold text-center" }, t("focusMode")), /* @__PURE__ */ window.React.createElement("button", { onClick: onClose, className: "absolute right-0 top-1/2 -translate-y-1/2 text-slate-400 hover:text-white transition-colors" }, /* @__PURE__ */ window.React.createElement("span", { className: "material-symbols-outlined text-[18px]" }, "close"))),
+      /* @__PURE__ */ window.React.createElement("div", { className: "flex gap-2 mb-4 w-full min-w-0" }, /* @__PURE__ */ window.React.createElement("div", { className: "flex-1 min-w-0" }, /* @__PURE__ */ window.React.createElement("label", { className: "text-xs text-slate-400 mb-1 block text-center" }, t("minutes")), /* @__PURE__ */ window.React.createElement("div", { className: "flex items-center border rounded overflow-hidden", style: { borderColor: "var(--theme-border)" } }, /* @__PURE__ */ window.React.createElement(
         "button",
         {
           type: "button",
@@ -514,8 +514,8 @@
             if (isNaN(val)) val = 0;
             setLocalMin(Math.min(120, Math.max(0, val)));
           },
-          className: "flex-1 w-full text-center text-sm py-1 bg-transparent outline-none focus:bg-primary/10 transition-colors disabled:opacity-50 no-drag-region",
-          style: { color: "white", minWidth: "40px" }
+          className: "flex-1 min-w-0 text-center text-sm py-1 px-0 bg-transparent outline-none focus:bg-primary/10 transition-colors disabled:opacity-50 no-drag-region",
+          style: { color: "white", width: 0, minWidth: 0, textAlign: "center" }
         }
       ), /* @__PURE__ */ window.React.createElement(
         "button",
@@ -526,7 +526,7 @@
           className: "px-2 py-1.5 text-slate-400 hover:text-primary hover:bg-primary/10 transition-colors disabled:opacity-30 disabled:cursor-not-allowed"
         },
         /* @__PURE__ */ window.React.createElement("span", { className: "material-symbols-outlined text-[14px]" }, "add")
-      ))), /* @__PURE__ */ window.React.createElement("div", { className: "flex-1" }, /* @__PURE__ */ window.React.createElement("label", { className: "text-xs text-slate-400 mb-1 block" }, t("seconds")), /* @__PURE__ */ window.React.createElement("div", { className: "flex items-center border rounded overflow-hidden", style: { borderColor: "var(--theme-border)" } }, /* @__PURE__ */ window.React.createElement(
+      ))), /* @__PURE__ */ window.React.createElement("div", { className: "flex-1 min-w-0" }, /* @__PURE__ */ window.React.createElement("label", { className: "text-xs text-slate-400 mb-1 block text-center" }, t("seconds")), /* @__PURE__ */ window.React.createElement("div", { className: "flex items-center border rounded overflow-hidden", style: { borderColor: "var(--theme-border)" } }, /* @__PURE__ */ window.React.createElement(
         "button",
         {
           type: "button",
@@ -548,8 +548,8 @@
             if (isNaN(val)) val = 0;
             setLocalSec(Math.min(59, Math.max(0, val)));
           },
-          className: "flex-1 w-full text-center text-sm py-1 bg-transparent outline-none focus:bg-primary/10 transition-colors disabled:opacity-50 no-drag-region",
-          style: { color: "white", minWidth: "40px" }
+          className: "flex-1 min-w-0 text-center text-sm py-1 px-0 bg-transparent outline-none focus:bg-primary/10 transition-colors disabled:opacity-50 no-drag-region",
+          style: { color: "white", width: 0, minWidth: 0, textAlign: "center" }
         }
       ), /* @__PURE__ */ window.React.createElement(
         "button",
@@ -561,7 +561,7 @@
         },
         /* @__PURE__ */ window.React.createElement("span", { className: "material-symbols-outlined text-[14px]" }, "add")
       )))),
-      /* @__PURE__ */ window.React.createElement("div", { className: "mb-4" }, /* @__PURE__ */ window.React.createElement("div", { className: "flex items-center gap-2" }, /* @__PURE__ */ window.React.createElement("div", { className: "flex-1 relative" }, /* @__PURE__ */ window.React.createElement(
+      /* @__PURE__ */ window.React.createElement("div", { className: "mb-4" }, /* @__PURE__ */ window.React.createElement("div", { className: "flex items-center gap-2" }, /* @__PURE__ */ window.React.createElement("div", { className: "flex-1 min-w-0 relative" }, /* @__PURE__ */ window.React.createElement(
         "button",
         {
           type: "button",
