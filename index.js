@@ -285,13 +285,11 @@
       {
         buttonRef,
         onClick: handleMainButtonClick,
-        className: `p-1.5 transition-colors relative flex items-center justify-center w-12 h-12 rounded-full transition-all active:scale-95 shadow-lg focus-trigger-btn
-                    ${store.isAlarmRinging ? "animate-[pulse_1s_ease-in-out_infinite] bg-red-500/30 text-red-500 shadow-[0_0_15px_rgba(239,68,68,0.6)]" : store.isFocusPopupOpen ? "bg-primary/20 text-primary border border-primary/50 scale-110" : "bg-white/5 text-slate-400 hover:text-primary hover:bg-white/10 hover:scale-110"}
-                `,
-        label: t("focusMode"),
-        style: { borderWidth: store.isFocusPopupOpen ? "1px" : "0px" }
+        className: "relative focus-trigger-btn flex items-center justify-center rounded-md transition-colors text-slate-400 hover:text-white hover:bg-white/10 active:scale-95",
+        style: { width: "var(--kb-bar-item, 36px)", height: "var(--kb-bar-item, 36px)" },
+        label: t("focusMode")
       },
-      store.isFocusActive ? /* @__PURE__ */ window.React.createElement("span", { className: "text-xs font-bold text-primary tracking-wider" }, formatTime(store.focusRemainingTime)) : /* @__PURE__ */ window.React.createElement("span", { className: "material-symbols-outlined text-[20px]" }, "hourglass_empty")
+      store.isFocusActive ? /* @__PURE__ */ window.React.createElement("span", { className: "text-xs font-bold tracking-wider" }, formatTime(store.focusRemainingTime)) : /* @__PURE__ */ window.React.createElement("span", { className: "material-symbols-outlined", style: { fontSize: "var(--kb-bar-icon, 20px)" } }, "hourglass_empty")
     ));
   };
   window.KoBarExtensions.registerInlineWidget("focus-mode-plugin-btn", {
