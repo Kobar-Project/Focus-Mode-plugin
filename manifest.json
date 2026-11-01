@@ -31,5 +31,14 @@
     "https://raw.githubusercontent.com/Kobar-Project/KoBar-Assets/main/Plugins%20images/Focus%20Mode/Focus-Mode2.png",
     "https://raw.githubusercontent.com/Kobar-Project/KoBar-Assets/main/Plugins%20images/Focus%20Mode/Focus-Mode3.png"
   ],
-  "apiVersion": "1.0.0"
+  "apiVersion": "1.0.0",
+  "bar": {
+    "tile": {
+      "template": "ring",
+      "sensitive": false,
+      "live": true,
+      "pinnable": true
+    },
+    "defaultSize": "icon"
+  }
 }

@@ -4,43 +4,63 @@ const useAppStore = window.useAppStore;
 const TRANSLATIONS = {
     en: {
         focusMode: "Focus Mode", minutes: "Minutes", seconds: "Seconds", loop: "Loop",
-        start: "Start", stop: "Stop", focusModeFinished: "Focus Mode Finished", focusModeFinishedDesc: "Your focus session has ended. Take a break!"
+        start: "Start", stop: "Stop", focusModeFinished: "Focus Mode Finished", focusModeFinishedDesc: "Your focus session has ended. Take a break!",
+        pause: "Pause", resume: "Resume", ambience: "Ambience", close: "Close",
+        barLeft: "Focus mode — {n} min left", barLessThanMinute: "Focus mode — less than a minute left", barPaused: "Focus mode — paused, {n} min left"
     },
     tr: {
         focusMode: "Odak Modu", minutes: "Dakika", seconds: "Saniye", loop: "Döngü",
-        start: "Başlat", stop: "Durdur", focusModeFinished: "Odaklanma Modu Bitti", focusModeFinishedDesc: "Odaklanma süreniz doldu. Biraz ara verin!"
+        start: "Başlat", stop: "Durdur", focusModeFinished: "Odaklanma Modu Bitti", focusModeFinishedDesc: "Odaklanma süreniz doldu. Biraz ara verin!",
+        pause: "Duraklat", resume: "Devam et", ambience: "Ortam sesi", close: "Kapat",
+        barLeft: "Odak modu — {n} dakika kaldı", barLessThanMinute: "Odak modu — bir dakikadan az kaldı", barPaused: "Odak modu — duraklatıldı, {n} dakika kaldı"
     },
     de: {
         focusMode: "Fokus-Modus", minutes: "Minuten", seconds: "Sekunden", loop: "Schleife",
-        start: "Starten", stop: "Stoppen", focusModeFinished: "Fokus-Modus beendet", focusModeFinishedDesc: "Ihre Fokus-Sitzung ist beendet. Machen Sie eine Pause!"
+        start: "Starten", stop: "Stoppen", focusModeFinished: "Fokus-Modus beendet", focusModeFinishedDesc: "Ihre Fokus-Sitzung ist beendet. Machen Sie eine Pause!",
+        pause: "Pause", resume: "Fortsetzen", ambience: "Atmosphäre", close: "Schließen",
+        barLeft: "Fokus-Modus — noch {n} Min.", barLessThanMinute: "Fokus-Modus — weniger als eine Minute übrig", barPaused: "Fokus-Modus — pausiert, noch {n} Min."
     },
     fr: {
         focusMode: "Mode Concentration", minutes: "Minutes", seconds: "Secondes", loop: "Boucle",
-        start: "Démarrer", stop: "Arrêter", focusModeFinished: "Mode Concentration Terminé", focusModeFinishedDesc: "Votre session de concentration est terminée. Faites une pause !"
+        start: "Démarrer", stop: "Arrêter", focusModeFinished: "Mode Concentration Terminé", focusModeFinishedDesc: "Votre session de concentration est terminée. Faites une pause !",
+        pause: "Pause", resume: "Reprendre", ambience: "Ambiance", close: "Fermer",
+        barLeft: "Mode Concentration — {n} min restantes", barLessThanMinute: "Mode Concentration — moins d’une minute restante", barPaused: "Mode Concentration — en pause, {n} min restantes"
     },
     es: {
         focusMode: "Modo Concentración", minutes: "Minutos", seconds: "Segundos", loop: "Bucle",
-        start: "Iniciar", stop: "Detener", focusModeFinished: "Modo Concentración Finalizado", focusModeFinishedDesc: "Tu sesión de concentración ha terminado. ¡Toma un descanso!"
+        start: "Iniciar", stop: "Detener", focusModeFinished: "Modo Concentración Finalizado", focusModeFinishedDesc: "Tu sesión de concentración ha terminado. ¡Toma un descanso!",
+        pause: "Pausar", resume: "Reanudar", ambience: "Ambiente", close: "Cerrar",
+        barLeft: "Modo Concentración — quedan {n} min", barLessThanMinute: "Modo Concentración — queda menos de un minuto", barPaused: "Modo Concentración — en pausa, quedan {n} min"
     },
     zh: {
         focusMode: "专注模式", minutes: "分钟", seconds: "秒", loop: "循环",
-        start: "开始", stop: "停止", focusModeFinished: "专注模式结束", focusModeFinishedDesc: "您的专注时间已结束。休息一下吧！"
+        start: "开始", stop: "停止", focusModeFinished: "专注模式结束", focusModeFinishedDesc: "您的专注时间已结束。休息一下吧！",
+        pause: "暂停", resume: "继续", ambience: "氛围音", close: "关闭",
+        barLeft: "专注模式 — 还剩 {n} 分钟", barLessThanMinute: "专注模式 — 不到一分钟", barPaused: "专注模式 — 已暂停，还剩 {n} 分钟"
     },
     ja: {
         focusMode: "集中モード", minutes: "分", seconds: "秒", loop: "ループ",
-        start: "開始", stop: "停止", focusModeFinished: "集中モード終了", focusModeFinishedDesc: "集中セッションが終了しました。休憩してください！"
+        start: "開始", stop: "停止", focusModeFinished: "集中モード終了", focusModeFinishedDesc: "集中セッションが終了しました。休憩してください！",
+        pause: "一時停止", resume: "再開", ambience: "環境音", close: "閉じる",
+        barLeft: "集中モード — 残り {n} 分", barLessThanMinute: "集中モード — 残り1分未満", barPaused: "集中モード — 一時停止中、残り {n} 分"
     },
     ru: {
         focusMode: "Режим фокуса", minutes: "Минуты", seconds: "Секунды", loop: "Цикл",
-        start: "Старт", stop: "Стоп", focusModeFinished: "Режим фокуса завершен", focusModeFinishedDesc: "Ваш сеанс фокусировки завершен. Сделайте перерыв!"
+        start: "Старт", stop: "Стоп", focusModeFinished: "Режим фокуса завершен", focusModeFinishedDesc: "Ваш сеанс фокусировки завершен. Сделайте перерыв!",
+        pause: "Пауза", resume: "Продолжить", ambience: "Атмосфера", close: "Закрыть",
+        barLeft: "Режим фокуса — осталось {n} мин", barLessThanMinute: "Режим фокуса — осталось меньше минуты", barPaused: "Режим фокуса — пауза, осталось {n} мин"
     },
     ar: {
         focusMode: "وضع التركيز", minutes: "دقائق", seconds: "ثواني", loop: "تكرار",
-        start: "ابدأ", stop: "إيقاف", focusModeFinished: "انتهى وضع التركيز", focusModeFinishedDesc: "انتهت جلسة التركيز الخاصة بك. خذ استراحة!"
+        start: "ابدأ", stop: "إيقاف", focusModeFinished: "انتهى وضع التركيز", focusModeFinishedDesc: "انتهت جلسة التركيز الخاصة بك. خذ استراحة!",
+        pause: "إيقاف مؤقت", resume: "استئناف", ambience: "الأجواء", close: "إغلاق",
+        barLeft: "وضع التركيز — تبقى {n} دقيقة", barLessThanMinute: "وضع التركيز — تبقى أقل من دقيقة", barPaused: "وضع التركيز — متوقف مؤقتًا، تبقى {n} دقيقة"
     },
     hi: {
         focusMode: "फोकस मोड", minutes: "मिनट", seconds: "सेकंड", loop: "लूप",
-        start: "प्रारंभ", stop: "रोकें", focusModeFinished: "फोकस मोड समाप्त", focusModeFinishedDesc: "आपका फोकस सत्र समाप्त हो गया है। ब्रेक लें!"
+        start: "प्रारंभ", stop: "रोकें", focusModeFinished: "फोकस मोड समाप्त", focusModeFinishedDesc: "आपका फोकस सत्र समाप्त हो गया है। ब्रेक लें!",
+        pause: "रोकें", resume: "फिर शुरू करें", ambience: "माहौल", close: "बंद करें",
+        barLeft: "फोकस मोड — {n} मिनट बचे", barLessThanMinute: "फोकस मोड — एक मिनट से कम बचा", barPaused: "फोकस मोड — रुका हुआ, {n} मिनट बचे"
     }
 };
 
@@ -51,6 +71,16 @@ const getLocalText = (key) => {
 };
 
 
+// --- Shared visual helpers (Canlı look, falls back to the old theme tokens) ---
+const ICON_FONT = "'Material Symbols Rounded', 'Material Symbols Outlined'";
+const iconStyle = (size, fill = 0) => ({
+    fontFamily: ICON_FONT,
+    fontSize: size,
+    fontVariationSettings: `'FILL' ${fill}, 'wght' 400`
+});
+const pad2 = (n) => String(n).padStart(2, '0');
+const formatClock = (totalSeconds) => `${pad2(Math.floor(totalSeconds / 60))}:${pad2(totalSeconds % 60)}`;
+
 // --- PLUGIN STATE ---
 class FocusStore {
     constructor() {
@@ -60,6 +90,8 @@ class FocusStore {
             focusSettings: { minutes: 25, seconds: 0, melody: 'Calming', loop: false },
             isFocusActive: false,
             focusRemainingTime: 0,
+            focusTotalTime: 0,
+            isPaused: false,
             isAlarmRinging: false
         };
         this.listeners = new Set();
@@ -90,12 +122,13 @@ class FocusStore {
     startTimer() {
         const total = (this.state.focusSettings.minutes * 60) + this.state.focusSettings.seconds;
         if (total > 0) {
-            this.setState({ isFocusActive: true, focusRemainingTime: total, isAlarmRinging: false });
+            this.setState({ isFocusActive: true, focusRemainingTime: total, focusTotalTime: total, isPaused: false, isAlarmRinging: false });
             this.stopAlarm();
             if (this.interval) clearInterval(this.interval);
             
             let lastTime = total;
             this.interval = setInterval(() => {
+                if (this.state.isPaused) return;
                 const current = this.state.focusRemainingTime;
                 
                 if (current <= 1) {
@@ -116,9 +149,17 @@ class FocusStore {
         }
     }
 
+    pauseTimer() {
+        if (this.state.isFocusActive && !this.state.isPaused) this.setState({ isPaused: true });
+    }
+
+    resumeTimer() {
+        if (this.state.isFocusActive && this.state.isPaused) this.setState({ isPaused: false });
+    }
+
     stopTimer() {
         if (this.interval) clearInterval(this.interval);
-        this.setState({ isFocusActive: false, focusRemainingTime: 0 });
+        this.setState({ isFocusActive: false, isPaused: false, focusRemainingTime: 0, focusTotalTime: 0 });
         this.stopAlarm();
     }
 
@@ -156,6 +197,71 @@ class FocusStore {
 }
 
 const focusStore = new FocusStore();
+
+// --- Bar tile (KoBar with Canlı tiles; silently skipped on older hosts) ---
+const BAR_ID = 'focus-mode-plugin-btn';
+const barApi = () => {
+    const ext = window.KoBarExtensions;
+    return ext && typeof ext.setBarItemState === 'function' ? ext : null;
+};
+let barVisible = true;
+let barLastKey = '';
+let barLastAt = 0;
+
+const compactValue = (seconds) => (
+    seconds >= 6000
+        ? `${Math.floor(seconds / 3600)}h${pad2(Math.floor((seconds % 3600) / 60))}`
+        : formatClock(seconds)
+);
+
+const pushBarState = (force) => {
+    const ext = barApi();
+    if (!ext || !barVisible) return;
+    const s = focusStore.getState();
+    const rem = s.focusRemainingTime;
+    const lang = useAppStore.getState().language || 'en';
+    const key = `${s.isFocusActive}|${s.isPaused}|${rem}|${lang}`;
+    const now = Date.now();
+    if (!force && (key === barLastKey || now - barLastAt < 900)) return;
+    barLastKey = key;
+    barLastAt = now;
+    const tr = (k) => getLocalText(k);
+    let state;
+    if (s.isFocusActive) {
+        const total = Math.max(1, s.focusTotalTime);
+        const minutes = Math.floor(rem / 60);
+        let label;
+        if (s.isPaused) label = tr('barPaused').replace('{n}', String(Math.max(1, minutes)));
+        else if (minutes < 1) label = tr('barLessThanMinute');
+        else label = tr('barLeft').replace('{n}', String(minutes));
+        state = {
+            label,
+            value: compactValue(rem),
+            progress: Math.min(1, Math.max(0, 1 - rem / total)),
+            icon: s.isPaused ? 'pause' : undefined
+        };
+    } else {
+        state = { label: tr('focusMode'), progress: 0 };
+    }
+    try { ext.setBarItemState(BAR_ID, state); } catch (e) { /* tile API is optional */ }
+};
+
+focusStore.subscribe(() => pushBarState(false));
+useAppStore.subscribe((state, prev) => {
+    if (state.language !== prev.language) pushBarState(true);
+});
+if (typeof window.KoBarExtensions?.onBarItemChange === 'function') {
+    try {
+        window.KoBarExtensions.onBarItemChange(BAR_ID, (info) => {
+            const visible = !info || info.visible !== false;
+            const changed = visible !== barVisible;
+            barVisible = visible;
+            if (visible && (changed || info)) pushBarState(true);
+        });
+    } catch (e) { /* tile API is optional */ }
+} else {
+    pushBarState(true);
+}
 
 function useFocusStore() {
     const [state, setState] = React.useState(focusStore.getState());
@@ -273,10 +379,28 @@ const FocusButtonWidget = () => {
     );
 };
 
-window.KoBarExtensions.registerInlineWidget('focus-mode-plugin-btn', {
-    id: 'focus-mode-plugin-btn',
-    render: () => React.createElement(FocusButtonWidget)
-});
+if (typeof window.KoBarExtensions.setBarItemState === 'function' && typeof window.KoBarExtensions.registerSidebarButton === 'function') {
+    // Tile-capable host: a sidebar button (same id as the inline widget, so the saved bar position is kept).
+    window.KoBarExtensions.registerSidebarButton({
+        id: 'focus-mode-plugin-btn',
+        icon: 'hourglass_empty',
+        label: getLocalText('focusMode'),
+        tile: { template: 'ring', live: true, pinnable: true },
+        onClick: (e, anchorRect) => {
+            const st = focusStore.getState();
+            if (st.isAlarmRinging) {
+                focusStore.stopAlarm();
+                return;
+            }
+            focusStore.setState({ focusAnchorRect: anchorRect, isFocusPopupOpen: !st.isFocusPopupOpen });
+        }
+    });
+} else {
+    window.KoBarExtensions.registerInlineWidget('focus-mode-plugin-btn', {
+        id: 'focus-mode-plugin-btn',
+        render: () => React.createElement(FocusButtonWidget)
+    });
+}
 
 // --- FocusPopup Panel ---
 const MELODIES = ['Alarm', 'Bells', 'Calming', 'Cosmic', 'Guitar', 'Hiphop', 'Ringtones'];
@@ -392,8 +516,8 @@ const FocusPopupWidget = ({ onClose, anchorRect }) => {
     const getPopupStyle = () => {
         if (!anchorRect) return { display: 'none' };
         
-        const popupHeight = 280;
-        const popupWidth = 256;
+        const popupHeight = 600;
+        const popupWidth = 320;
         const screenHeight = appState.screenBounds?.height ?? 800;
         const screenWidth = appState.screenBounds?.width ?? 1200;
         const offsetTop = appState.sidebarPosition ? appState.sidebarPosition.y : 0;
@@ -465,8 +589,8 @@ const FocusPopupWidget = ({ onClose, anchorRect }) => {
             if (!popupRef.current || !anchorRect || !isSmartRef.current) return;
             const newX = e.detail.x;
             const newY = e.detail.y;
-            const popupHeight = 280;
-            const popupWidth = 256;
+            const popupHeight = 600;
+            const popupWidth = 320;
             
             const screenXInViewport = (appState.screenBounds?.x ?? 0) - window.screenX;
             const screenYInViewport = (appState.screenBounds?.y ?? 0) - window.screenY;
@@ -493,171 +617,157 @@ const FocusPopupWidget = ({ onClose, anchorRect }) => {
         return () => document.removeEventListener('kobar-drag', onDrag);
     }, [anchorRect, appState.screenBounds, appState.orientation]);
 
+    const ringSize = 200;
+    const ringStroke = 12;
+    const ringR = (ringSize - ringStroke) / 2;
+    const ringC = 2 * Math.PI * ringR;
+    const progress = store.isFocusActive
+        ? Math.min(1, Math.max(0, 1 - store.focusRemainingTime / Math.max(1, store.focusTotalTime)))
+        : 0;
+    const shownSeconds = store.isFocusActive ? store.focusRemainingTime : (localMin * 60 + localSec);
+
+    const cTonal = { background: 'var(--kb-bg-container, var(--theme-accent-glow, rgba(255,255,255,.1)))', color: 'var(--kb-on-container, #fff)' };
+    const cInset = 'var(--kb-bg-inset, rgba(0,0,0,.25))';
+    const circleBtn = { ...cTonal, width: 44, height: 44, borderRadius: 22, border: 0, display: 'flex', alignItems: 'center', justifyContent: 'center', cursor: 'pointer' };
+    const stepBtn = { width: 36, height: 40, border: 0, background: 'transparent', color: 'var(--kb-fg-2, #aab)', display: 'flex', alignItems: 'center', justifyContent: 'center', cursor: 'pointer' };
+    const stepInput = { flex: 1, minWidth: 0, width: 0, textAlign: 'center', fontSize: 16, background: 'transparent', border: 0, outline: 'none', color: 'var(--kb-fg-1, #fff)', fontVariantNumeric: 'tabular-nums' };
+    const dis = (d) => (d ? { opacity: 0.4, cursor: 'not-allowed' } : null);
+
+    React.useEffect(() => {
+        const onKey = (e) => { if (e.key === 'Escape') onClose(); };
+        document.addEventListener('keydown', onKey);
+        return () => document.removeEventListener('keydown', onKey);
+    }, [onClose]);
+
+    const renderStepper = (label, value, min, max, onSet) => (
+        <div style={{ flex: 1, minWidth: 0 }}>
+            <label style={{ fontSize: 12, color: 'var(--kb-fg-2, #aab)', display: 'block', textAlign: 'center', marginBottom: 6 }}>{label}</label>
+            <div style={{ display: 'flex', alignItems: 'center', background: cInset, borderRadius: 16, overflow: 'hidden' }}>
+                <button type="button" aria-label={`${label} −`} disabled={store.isFocusActive || value <= min} onClick={() => onSet(Math.max(min, value - 1))} style={{ ...stepBtn, ...dis(store.isFocusActive || value <= min) }}>
+                    <span className="material-symbols-outlined" style={iconStyle(18)}>remove</span>
+                </button>
+                <input
+                    type="text"
+                    inputMode="numeric"
+                    pattern="[0-9]*"
+                    aria-label={label}
+                    disabled={store.isFocusActive}
+                    value={value !== undefined ? String(value).padStart(2, '0') : '00'}
+                    onChange={(e) => {
+                        let val = parseInt(e.target.value.replace(/\D/g, ''), 10);
+                        if (isNaN(val)) val = 0;
+                        onSet(Math.min(max, Math.max(min, val)));
+                    }}
+                    className="no-drag-region"
+                    style={stepInput}
+                />
+                <button type="button" aria-label={`${label} +`} disabled={store.isFocusActive || value >= max} onClick={() => onSet(Math.min(max, value + 1))} style={{ ...stepBtn, ...dis(store.isFocusActive || value >= max) }}>
+                    <span className="material-symbols-outlined" style={iconStyle(18)}>add</span>
+                </button>
+            </div>
+        </div>
+    );
+
+    const startDisabled = !store.isFocusActive && localMin === 0 && localSec === 0;
+    const mainAction = () => {
+        if (!store.isFocusActive) { handleStart(); return; }
+        if (store.isPaused) focusStore.resumeTimer(); else focusStore.pauseTimer();
+    };
+    const mainIcon = store.isFocusActive && !store.isPaused ? 'pause' : 'play_arrow';
+    const mainLabel = !store.isFocusActive ? t('start') : (store.isPaused ? t('resume') : t('pause'));
+
     return (
         <div
             ref={popupRef}
-            className="w-[270px] rounded-xl border shadow-2xl pointer-events-auto animate-in fade-in zoom-in duration-200 overflow-visible"
-            style={{ ...getPopupStyle(), boxSizing: 'border-box', padding: 16, textAlign: 'center' }}
+            className="pointer-events-auto"
+            style={{
+                ...getPopupStyle(),
+                boxSizing: 'border-box',
+                width: 320,
+                padding: 20,
+                borderRadius: 32,
+                background: 'var(--kb-bg-shell, var(--theme-bg-dark, #161922))',
+                border: '1px solid var(--kb-stroke-subtle, var(--theme-border))',
+                boxShadow: 'var(--kb-shadow-e3, 0 12px 32px rgba(0,0,0,.45))',
+                color: 'var(--kb-fg-1, #fff)',
+                overflow: 'visible'
+            }}
         >
-            <div className="relative flex justify-center items-center mb-4">
-                <h3 className="text-primary font-bold text-center">{t('focusMode')}</h3>
-                <button onClick={onClose} className="absolute right-0 top-1/2 -translate-y-1/2 text-slate-400 hover:text-white transition-colors">
-                    <span className="material-symbols-outlined text-[18px]">close</span>
+            <div style={{ display: 'flex', alignItems: 'center', gap: 12, marginBottom: 16 }}>
+                <div style={{ ...cTonal, width: 44, height: 44, borderRadius: 15, display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>
+                    <span className="material-symbols-outlined" style={{ ...iconStyle(24, 1), color: 'var(--kb-accent, var(--theme-accent, currentColor))' }}>hourglass_top</span>
+                </div>
+                <h3 style={{ flex: 1, minWidth: 0, margin: 0, fontSize: 19, fontWeight: 600, fontFamily: 'var(--kb-font-display, inherit)', textAlign: 'start', overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>{t('focusMode')}</h3>
+                <button type="button" onClick={onClose} aria-label={t('close')} style={{ ...circleBtn, width: 36, height: 36, borderRadius: 18, background: cInset, color: 'var(--kb-fg-1, #fff)' }}>
+                    <span className="material-symbols-outlined" style={iconStyle(20)}>close</span>
                 </button>
             </div>
 
-            <div className="flex gap-2 mb-4 w-full min-w-0">
-                <div className="flex-1 min-w-0">
-                    <label className="text-xs text-slate-400 mb-1 block text-center">{t('minutes')}</label>
-                    <div className="flex items-center border rounded overflow-hidden" style={{ borderColor: 'var(--theme-border)' }}>
-                        <button
-                            type="button"
-                            disabled={store.isFocusActive || localMin <= 0}
-                            onClick={() => setLocalMin(m => Math.max(0, m - 1))}
-                            className="px-2 py-1.5 text-slate-400 hover:text-primary hover:bg-primary/10 transition-colors disabled:opacity-30 disabled:cursor-not-allowed"
-                        >
-                            <span className="material-symbols-outlined text-[14px]">remove</span>
-                        </button>
-                        <input
-                            type="text"
-                            inputMode="numeric"
-                            pattern="[0-9]*"
-                            disabled={store.isFocusActive}
-                            value={localMin !== undefined ? String(localMin).padStart(2, '0') : '25'}
-                            onChange={(e) => {
-                                let val = parseInt(e.target.value.replace(/\D/g, ''), 10);
-                                if (isNaN(val)) val = 0;
-                                setLocalMin(Math.min(120, Math.max(0, val)));
-                            }}
-                            className="flex-1 min-w-0 text-center text-sm py-1 px-0 bg-transparent outline-none focus:bg-primary/10 transition-colors disabled:opacity-50 no-drag-region"
-                            style={{ color: 'white', width: 0, minWidth: 0, textAlign: 'center' }}
-                        />
-                        <button
-                            type="button"
-                            disabled={store.isFocusActive || localMin >= 120}
-                            onClick={() => setLocalMin(m => Math.min(120, m + 1))}
-                            className="px-2 py-1.5 text-slate-400 hover:text-primary hover:bg-primary/10 transition-colors disabled:opacity-30 disabled:cursor-not-allowed"
-                        >
-                            <span className="material-symbols-outlined text-[14px]">add</span>
-                        </button>
-                    </div>
-                </div>
-                <div className="flex-1 min-w-0">
-                    <label className="text-xs text-slate-400 mb-1 block text-center">{t('seconds')}</label>
-                    <div className="flex items-center border rounded overflow-hidden" style={{ borderColor: 'var(--theme-border)' }}>
-                        <button
-                            type="button"
-                            disabled={store.isFocusActive || localSec <= 0}
-                            onClick={() => setLocalSec(s => Math.max(0, s - 1))}
-                            className="px-2 py-1.5 text-slate-400 hover:text-primary hover:bg-primary/10 transition-colors disabled:opacity-30 disabled:cursor-not-allowed"
-                        >
-                            <span className="material-symbols-outlined text-[14px]">remove</span>
-                        </button>
-                        <input
-                            type="text"
-                            inputMode="numeric"
-                            pattern="[0-9]*"
-                            disabled={store.isFocusActive}
-                            value={localSec !== undefined ? String(localSec).padStart(2, '0') : '00'}
-                            onChange={(e) => {
-                                let val = parseInt(e.target.value.replace(/\D/g, ''), 10);
-                                if (isNaN(val)) val = 0;
-                                setLocalSec(Math.min(59, Math.max(0, val)));
-                            }}
-                            className="flex-1 min-w-0 text-center text-sm py-1 px-0 bg-transparent outline-none focus:bg-primary/10 transition-colors disabled:opacity-50 no-drag-region"
-                            style={{ color: 'white', width: 0, minWidth: 0, textAlign: 'center' }}
-                        />
-                        <button
-                            type="button"
-                            disabled={store.isFocusActive || localSec >= 59}
-                            onClick={() => setLocalSec(s => Math.min(59, s + 1))}
-                            className="px-2 py-1.5 text-slate-400 hover:text-primary hover:bg-primary/10 transition-colors disabled:opacity-30 disabled:cursor-not-allowed"
-                        >
-                            <span className="material-symbols-outlined text-[14px]">add</span>
-                        </button>
-                    </div>
+            <div style={{ position: 'relative', width: ringSize, height: ringSize, margin: '0 auto 20px' }}>
+                <svg width={ringSize} height={ringSize} viewBox={`0 0 ${ringSize} ${ringSize}`} style={{ transform: 'rotate(-90deg)', display: 'block' }} aria-hidden="true">
+                    <circle cx={ringSize / 2} cy={ringSize / 2} r={ringR} fill="none" stroke="var(--kb-ring-track, rgba(255,255,255,.14))" strokeWidth={ringStroke} />
+                    <circle cx={ringSize / 2} cy={ringSize / 2} r={ringR} fill="none" stroke="var(--kb-accent, var(--theme-accent, #7c9cff))" strokeWidth={ringStroke} strokeLinecap="round" strokeDasharray={ringC} strokeDashoffset={ringC * (1 - progress)} />
+                </svg>
+                <div style={{ position: 'absolute', inset: 0, display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center' }}>
+                    <span style={{ fontFamily: 'var(--kb-font-display, inherit)', fontSize: 48, fontWeight: 600, fontVariantNumeric: 'tabular-nums', lineHeight: 1 }}>{formatClock(shownSeconds)}</span>
+                    {store.isPaused && <span style={{ fontSize: 12, color: 'var(--kb-fg-2, #aab)', marginTop: 6 }}>{t('pause')}</span>}
                 </div>
             </div>
 
-            <div className="mb-4">
-                <div className="flex items-center gap-2">
-                    <div className="flex-1 min-w-0 relative">
-                        <button
-                            type="button"
-                            onClick={() => !store.isFocusActive && setMelodyDropdownOpen(!melodyDropdownOpen)}
-                            disabled={store.isFocusActive}
-                            className="w-full bg-black/20 border rounded px-2 py-1.5 text-slate-200 text-left flex items-center justify-between disabled:opacity-50 cursor-pointer hover:border-primary/50 transition-colors"
-                            style={{ borderColor: 'var(--theme-border)' }}
-                        >
-                            <span>{localMelody}</span>
-                            <span className="material-symbols-outlined text-[16px] text-slate-400">
-                                {melodyDropdownOpen ? 'expand_less' : 'expand_more'}
-                            </span>
-                        </button>
-                        {melodyDropdownOpen && (
-                            <div
-                                className="absolute top-full left-0 w-full mt-1 rounded border shadow-xl overflow-y-auto"
-                                style={{ backgroundColor: 'var(--theme-surface)', borderColor: 'var(--theme-border)', zIndex: 10000 }}
+            <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 20, marginBottom: 20 }}>
+                <button type="button" aria-label={t('stop')} disabled={!store.isFocusActive} onClick={() => { focusStore.stopTimer(); onClose(); }} style={{ ...circleBtn, ...dis(!store.isFocusActive) }}>
+                    <span className="material-symbols-outlined" style={iconStyle(22)}>stop</span>
+                </button>
+                <button type="button" aria-label={mainLabel} title={mainLabel} disabled={startDisabled} onClick={mainAction} style={{ width: 72, height: 72, borderRadius: 28, border: 0, background: 'var(--kb-accent, var(--theme-accent, #7c9cff))', color: 'var(--kb-on-accent, #fff)', display: 'flex', alignItems: 'center', justifyContent: 'center', cursor: 'pointer', ...dis(startDisabled) }}>
+                    <span className="material-symbols-outlined" style={iconStyle(36, 1)}>{mainIcon}</span>
+                </button>
+                <button type="button" aria-label={isPlayingPreview ? t('stop') : t('ambience')} disabled={store.isFocusActive} onClick={togglePreview} style={{ ...circleBtn, ...dis(store.isFocusActive) }}>
+                    <span className="material-symbols-outlined" style={iconStyle(22)}>{isPlayingPreview ? 'volume_off' : 'volume_up'}</span>
+                </button>
+            </div>
+
+            <div style={{ background: 'var(--kb-bg-surface, var(--theme-surface))', borderRadius: 24, padding: 16 }}>
+                <div style={{ display: 'flex', gap: 8, marginBottom: 16, minWidth: 0 }}>
+                    {renderStepper(t('minutes'), localMin, 0, 120, (v) => setLocalMin(v))}
+                    {renderStepper(t('seconds'), localSec, 0, 59, (v) => setLocalSec(v))}
+                </div>
+
+                <div style={{ fontSize: 12, color: 'var(--kb-fg-2, #aab)', marginBottom: 8 }}>{t('ambience')}</div>
+                <div role="radiogroup" aria-label={t('ambience')} style={{ display: 'flex', flexWrap: 'wrap', gap: 6, marginBottom: 16 }}>
+                    {MELODIES.map((m) => {
+                        const selected = m === localMelody;
+                        return (
+                            <button
+                                key={m}
+                                type="button"
+                                role="radio"
+                                aria-checked={selected}
+                                disabled={store.isFocusActive}
+                                onClick={() => { setLocalMelody(m); stopPreview(); }}
+                                style={{ height: 32, padding: '0 12px', borderRadius: 10, border: 0, fontSize: 13, cursor: 'pointer', background: selected ? 'var(--kb-bg-container, var(--theme-accent-glow, rgba(255,255,255,.1)))' : 'var(--kb-bg-tile, var(--theme-surface, #242833))', color: selected ? 'var(--kb-on-container, #fff)' : 'var(--kb-fg-2, #aab)', fontWeight: selected ? 600 : 400, ...dis(store.isFocusActive) }}
                             >
-                                {MELODIES.map((m) => (
-                                    <button
-                                        key={m}
-                                        type="button"
-                                        onClick={() => {
-                                            setLocalMelody(m);
-                                            setMelodyDropdownOpen(false);
-                                            stopPreview();
-                                        }}
-                                        className={`w-full text-left px-3 py-1.5 text-sm transition-colors hover:bg-primary/20 ${m === localMelody ? 'text-primary font-semibold bg-primary/10' : 'text-slate-300'}`}
-                                    >
-                                        {m}
-                                    </button>
-                                ))}
-                            </div>
-                        )}
-                    </div>
+                                {m}
+                            </button>
+                        );
+                    })}
+                </div>
+
+                <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
+                    <span style={{ fontSize: 14, fontWeight: 500 }}>{t('loop')}</span>
                     <button
-                        onClick={togglePreview}
+                        type="button"
+                        role="switch"
+                        aria-checked={localLoop}
+                        aria-label={t('loop')}
+                        onClick={() => !store.isFocusActive && setLocalLoop(!localLoop)}
                         disabled={store.isFocusActive}
-                        className="w-8 h-8 flex items-center justify-center rounded-lg bg-primary/20 text-primary hover:bg-primary/30 transition-colors disabled:opacity-50 border border-primary/30"
+                        className="no-drag-region"
+                        style={{ width: 44, height: 26, borderRadius: 13, border: 0, position: 'relative', cursor: 'pointer', background: localLoop ? 'var(--kb-accent, var(--theme-accent, #7c9cff))' : 'var(--kb-bg-inset, rgba(255,255,255,.18))', ...dis(store.isFocusActive) }}
                     >
-                        <span className="material-symbols-outlined text-[18px]">
-                            {isPlayingPreview ? 'stop' : 'play_arrow'}
-                        </span>
+                        <span style={{ position: 'absolute', top: 3, left: localLoop ? 21 : 3, width: 20, height: 20, borderRadius: 10, background: localLoop ? 'var(--kb-on-accent, #fff)' : 'var(--kb-fg-2, #ccd)', transition: 'left 120ms' }} />
                     </button>
                 </div>
             </div>
-
-            <div className="flex items-center justify-between mb-6">
-                <span className="text-sm text-slate-300 font-medium">{t('loop')}</span>
-                <button
-                    onClick={() => !store.isFocusActive && setLocalLoop(!localLoop)}
-                    disabled={store.isFocusActive}
-                    className={`w-11 h-6 rounded-full transition-colors relative flex items-center border border-black/20 disabled:opacity-50 no-drag-region ${localLoop ? 'bg-primary' : 'bg-slate-600'}`}
-                >
-                    <div className={`w-4 h-4 rounded-full bg-white shadow-sm absolute transition-transform ${localLoop ? 'translate-x-[22px]' : 'translate-x-[4px]'}`} />
-                </button>
-            </div>
-
-            {store.isFocusActive ? (
-                <button
-                    onClick={() => {
-                        focusStore.stopTimer();
-                        onClose();
-                    }}
-                    className="w-full py-2 rounded-lg font-bold transition-all active:scale-95 bg-red-500/20 text-red-400 border border-red-500/30 hover:bg-red-500/30"
-                >
-                    {t('stop')}
-                </button>
-            ) : (
-                <button
-                    onClick={handleStart}
-                    disabled={localMin === 0 && localSec === 0}
-                    className="w-full py-2 rounded-lg font-bold transition-all active:scale-95 bg-primary/20 text-primary border border-primary/30 hover:bg-primary/30 disabled:opacity-50 disabled:cursor-not-allowed"
-                >
-                    {t('start')}
-                </button>
-            )}
         </div>
     );
 };
