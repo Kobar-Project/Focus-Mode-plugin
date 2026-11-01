@@ -6,60 +6,70 @@ const TRANSLATIONS = {
         focusMode: "Focus Mode", minutes: "Minutes", seconds: "Seconds", loop: "Loop",
         start: "Start", stop: "Stop", focusModeFinished: "Focus Mode Finished", focusModeFinishedDesc: "Your focus session has ended. Take a break!",
         pause: "Pause", resume: "Resume", ambience: "Ambience", close: "Close",
+        remaining: "remaining", paused: "Paused", duration: "Duration", stopAlarm: "Stop alarm", startAgain: "Start again", sessionDone: "Session finished", sessionDoneDesc: "Time is up. Take a break.", minShort: "min",
         barLeft: "Focus mode — {n} min left", barLessThanMinute: "Focus mode — less than a minute left", barPaused: "Focus mode — paused, {n} min left"
     },
     tr: {
         focusMode: "Odak Modu", minutes: "Dakika", seconds: "Saniye", loop: "Döngü",
         start: "Başlat", stop: "Durdur", focusModeFinished: "Odaklanma Modu Bitti", focusModeFinishedDesc: "Odaklanma süreniz doldu. Biraz ara verin!",
         pause: "Duraklat", resume: "Devam et", ambience: "Ortam sesi", close: "Kapat",
+        remaining: "kalan", paused: "Duraklatıldı", duration: "Süre", stopAlarm: "Alarmı durdur", startAgain: "Yeniden başlat", sessionDone: "Oturum bitti", sessionDoneDesc: "Süre doldu. Biraz ara verin.", minShort: "dk",
         barLeft: "Odak modu — {n} dakika kaldı", barLessThanMinute: "Odak modu — bir dakikadan az kaldı", barPaused: "Odak modu — duraklatıldı, {n} dakika kaldı"
     },
     de: {
         focusMode: "Fokus-Modus", minutes: "Minuten", seconds: "Sekunden", loop: "Schleife",
         start: "Starten", stop: "Stoppen", focusModeFinished: "Fokus-Modus beendet", focusModeFinishedDesc: "Ihre Fokus-Sitzung ist beendet. Machen Sie eine Pause!",
         pause: "Pause", resume: "Fortsetzen", ambience: "Atmosphäre", close: "Schließen",
+        remaining: "verbleibend", paused: "Pausiert", duration: "Dauer", stopAlarm: "Alarm stoppen", startAgain: "Erneut starten", sessionDone: "Sitzung beendet", sessionDoneDesc: "Die Zeit ist um. Mach eine Pause.", minShort: "Min.",
         barLeft: "Fokus-Modus — noch {n} Min.", barLessThanMinute: "Fokus-Modus — weniger als eine Minute übrig", barPaused: "Fokus-Modus — pausiert, noch {n} Min."
     },
     fr: {
         focusMode: "Mode Concentration", minutes: "Minutes", seconds: "Secondes", loop: "Boucle",
         start: "Démarrer", stop: "Arrêter", focusModeFinished: "Mode Concentration Terminé", focusModeFinishedDesc: "Votre session de concentration est terminée. Faites une pause !",
         pause: "Pause", resume: "Reprendre", ambience: "Ambiance", close: "Fermer",
+        remaining: "restantes", paused: "En pause", duration: "Durée", stopAlarm: "Arrêter l’alarme", startAgain: "Recommencer", sessionDone: "Session terminée", sessionDoneDesc: "Le temps est écoulé. Faites une pause.", minShort: "min",
         barLeft: "Mode Concentration — {n} min restantes", barLessThanMinute: "Mode Concentration — moins d’une minute restante", barPaused: "Mode Concentration — en pause, {n} min restantes"
     },
     es: {
         focusMode: "Modo Concentración", minutes: "Minutos", seconds: "Segundos", loop: "Bucle",
         start: "Iniciar", stop: "Detener", focusModeFinished: "Modo Concentración Finalizado", focusModeFinishedDesc: "Tu sesión de concentración ha terminado. ¡Toma un descanso!",
         pause: "Pausar", resume: "Reanudar", ambience: "Ambiente", close: "Cerrar",
+        remaining: "restante", paused: "En pausa", duration: "Duración", stopAlarm: "Detener alarma", startAgain: "Empezar de nuevo", sessionDone: "Sesión terminada", sessionDoneDesc: "Se acabó el tiempo. Toma un descanso.", minShort: "min",
         barLeft: "Modo Concentración — quedan {n} min", barLessThanMinute: "Modo Concentración — queda menos de un minuto", barPaused: "Modo Concentración — en pausa, quedan {n} min"
     },
     zh: {
         focusMode: "专注模式", minutes: "分钟", seconds: "秒", loop: "循环",
         start: "开始", stop: "停止", focusModeFinished: "专注模式结束", focusModeFinishedDesc: "您的专注时间已结束。休息一下吧！",
         pause: "暂停", resume: "继续", ambience: "氛围音", close: "关闭",
+        remaining: "剩余", paused: "已暂停", duration: "时长", stopAlarm: "停止闹钟", startAgain: "重新开始", sessionDone: "专注已结束", sessionDoneDesc: "时间到。休息一下。", minShort: "分钟",
         barLeft: "专注模式 — 还剩 {n} 分钟", barLessThanMinute: "专注模式 — 不到一分钟", barPaused: "专注模式 — 已暂停，还剩 {n} 分钟"
     },
     ja: {
         focusMode: "集中モード", minutes: "分", seconds: "秒", loop: "ループ",
         start: "開始", stop: "停止", focusModeFinished: "集中モード終了", focusModeFinishedDesc: "集中セッションが終了しました。休憩してください！",
         pause: "一時停止", resume: "再開", ambience: "環境音", close: "閉じる",
+        remaining: "残り", paused: "一時停止中", duration: "時間", stopAlarm: "アラームを停止", startAgain: "もう一度開始", sessionDone: "セッション終了", sessionDoneDesc: "時間です。休憩してください。", minShort: "分",
         barLeft: "集中モード — 残り {n} 分", barLessThanMinute: "集中モード — 残り1分未満", barPaused: "集中モード — 一時停止中、残り {n} 分"
     },
     ru: {
         focusMode: "Режим фокуса", minutes: "Минуты", seconds: "Секунды", loop: "Цикл",
         start: "Старт", stop: "Стоп", focusModeFinished: "Режим фокуса завершен", focusModeFinishedDesc: "Ваш сеанс фокусировки завершен. Сделайте перерыв!",
         pause: "Пауза", resume: "Продолжить", ambience: "Атмосфера", close: "Закрыть",
+        remaining: "осталось", paused: "На паузе", duration: "Длительность", stopAlarm: "Выключить сигнал", startAgain: "Начать заново", sessionDone: "Сеанс завершён", sessionDoneDesc: "Время вышло. Сделайте перерыв.", minShort: "мин",
         barLeft: "Режим фокуса — осталось {n} мин", barLessThanMinute: "Режим фокуса — осталось меньше минуты", barPaused: "Режим фокуса — пауза, осталось {n} мин"
     },
     ar: {
         focusMode: "وضع التركيز", minutes: "دقائق", seconds: "ثواني", loop: "تكرار",
         start: "ابدأ", stop: "إيقاف", focusModeFinished: "انتهى وضع التركيز", focusModeFinishedDesc: "انتهت جلسة التركيز الخاصة بك. خذ استراحة!",
         pause: "إيقاف مؤقت", resume: "استئناف", ambience: "الأجواء", close: "إغلاق",
+        remaining: "متبقٍ", paused: "متوقف مؤقتًا", duration: "المدة", stopAlarm: "إيقاف المنبه", startAgain: "ابدأ من جديد", sessionDone: "انتهت الجلسة", sessionDoneDesc: "انتهى الوقت. خذ استراحة.", minShort: "د",
         barLeft: "وضع التركيز — تبقى {n} دقيقة", barLessThanMinute: "وضع التركيز — تبقى أقل من دقيقة", barPaused: "وضع التركيز — متوقف مؤقتًا، تبقى {n} دقيقة"
     },
     hi: {
         focusMode: "फोकस मोड", minutes: "मिनट", seconds: "सेकंड", loop: "लूप",
         start: "प्रारंभ", stop: "रोकें", focusModeFinished: "फोकस मोड समाप्त", focusModeFinishedDesc: "आपका फोकस सत्र समाप्त हो गया है। ब्रेक लें!",
         pause: "रोकें", resume: "फिर शुरू करें", ambience: "माहौल", close: "बंद करें",
+        remaining: "बचा", paused: "रुका हुआ", duration: "अवधि", stopAlarm: "अलार्म रोकें", startAgain: "फिर से शुरू करें", sessionDone: "सत्र समाप्त", sessionDoneDesc: "समय पूरा हुआ। ब्रेक लें।", minShort: "मिनट",
         barLeft: "फोकस मोड — {n} मिनट बचे", barLessThanMinute: "फोकस मोड — एक मिनट से कम बचा", barPaused: "फोकस मोड — रुका हुआ, {n} मिनट बचे"
     }
 };
@@ -220,14 +230,16 @@ const pushBarState = (force) => {
     const s = focusStore.getState();
     const rem = s.focusRemainingTime;
     const lang = useAppStore.getState().language || 'en';
-    const key = `${s.isFocusActive}|${s.isPaused}|${rem}|${lang}|${s.focusSettings.minutes}:${s.focusSettings.seconds}`;
+    const key = `${s.isAlarmRinging}|${s.isFocusActive}|${s.isPaused}|${rem}|${lang}|${s.focusSettings.minutes}:${s.focusSettings.seconds}`;
     const now = Date.now();
     if (!force && (key === barLastKey || now - barLastAt < 900)) return;
     barLastKey = key;
     barLastAt = now;
     const tr = (k) => getLocalText(k);
     let state;
-    if (s.isFocusActive) {
+    if (s.isAlarmRinging) {
+        state = { label: tr('sessionDone'), value: '00:00', progress: 1, tone: 'attention', icon: 'notifications_active' };
+    } else if (s.isFocusActive) {
         const total = Math.max(1, s.focusTotalTime);
         const minutes = Math.floor(rem / 60);
         let label;
@@ -406,6 +418,11 @@ if (typeof window.KoBarExtensions.setBarItemState === 'function' && typeof windo
 }
 
 // --- FocusPopup Panel ---
+const PANEL_W = 340;
+const FM_CSS = `
+.fm-panel .fm-btn:focus-visible,.fm-panel input:focus-visible{outline:2px solid var(--kb-accent, var(--theme-accent, #7c9cff));outline-offset:2px}
+.fm-panel .fm-btn:disabled{cursor:not-allowed}
+`;
 const MELODIES = ['Alarm', 'Bells', 'Calming', 'Cosmic', 'Guitar', 'Hiphop', 'Ringtones'];
 
 const FocusPopupWidget = ({ onClose, anchorRect }) => {
@@ -519,8 +536,8 @@ const FocusPopupWidget = ({ onClose, anchorRect }) => {
     const getPopupStyle = () => {
         if (!anchorRect) return { display: 'none' };
         
-        const popupHeight = 600;
-        const popupWidth = 320;
+        const popupHeight = 560;
+        const popupWidth = PANEL_W;
         const screenHeight = appState.screenBounds?.height ?? 800;
         const screenWidth = appState.screenBounds?.width ?? 1200;
         const offsetTop = appState.sidebarPosition ? appState.sidebarPosition.y : 0;
@@ -592,8 +609,8 @@ const FocusPopupWidget = ({ onClose, anchorRect }) => {
             if (!popupRef.current || !anchorRect || !isSmartRef.current) return;
             const newX = e.detail.x;
             const newY = e.detail.y;
-            const popupHeight = 600;
-            const popupWidth = 320;
+            const popupHeight = 560;
+            const popupWidth = PANEL_W;
             
             const screenXInViewport = (appState.screenBounds?.x ?? 0) - window.screenX;
             const screenYInViewport = (appState.screenBounds?.y ?? 0) - window.screenY;
@@ -620,21 +637,28 @@ const FocusPopupWidget = ({ onClose, anchorRect }) => {
         return () => document.removeEventListener('kobar-drag', onDrag);
     }, [anchorRect, appState.screenBounds, appState.orientation]);
 
-    const ringSize = 200;
+    const ringSize = 188;
     const ringStroke = 12;
     const ringR = (ringSize - ringStroke) / 2;
     const ringC = 2 * Math.PI * ringR;
-    const progress = store.isFocusActive
+    const ringing = store.isAlarmRinging;
+    const running = store.isFocusActive;
+    const progress = ringing ? 1 : (running
         ? Math.min(1, Math.max(0, 1 - store.focusRemainingTime / Math.max(1, store.focusTotalTime)))
-        : 0;
-    const shownSeconds = store.isFocusActive ? store.focusRemainingTime : (localMin * 60 + localSec);
+        : 0);
+    const shownSeconds = running ? store.focusRemainingTime : (localMin * 60 + localSec);
+    const ringCaption = ringing ? t('sessionDone') : (running ? (store.isPaused ? t('paused') : t('remaining')) : t('minutes'));
 
+    const ACC = 'var(--kb-accent, var(--theme-accent, #7c9cff))';
+    const FG2 = 'var(--kb-fg-2, #b4b8c6)';
     const cTonal = { background: 'var(--kb-bg-container, var(--theme-accent-glow, rgba(255,255,255,.1)))', color: 'var(--kb-on-container, #fff)' };
     const cInset = 'var(--kb-bg-inset, rgba(0,0,0,.25))';
-    const circleBtn = { ...cTonal, width: 44, height: 44, borderRadius: 22, border: 0, display: 'flex', alignItems: 'center', justifyContent: 'center', cursor: 'pointer' };
-    const stepBtn = { width: 36, height: 40, border: 0, background: 'transparent', color: 'var(--kb-fg-2, #aab)', display: 'flex', alignItems: 'center', justifyContent: 'center', cursor: 'pointer' };
+    const stepBtn = { width: 36, height: 40, border: 0, background: 'transparent', color: FG2, display: 'flex', alignItems: 'center', justifyContent: 'center', cursor: 'pointer' };
     const stepInput = { flex: 1, minWidth: 0, width: 0, textAlign: 'center', fontSize: 16, background: 'transparent', border: 0, outline: 'none', color: 'var(--kb-fg-1, #fff)', fontVariantNumeric: 'tabular-nums' };
     const dis = (d) => (d ? { opacity: 0.4, cursor: 'not-allowed' } : null);
+    const bigBtn = { height: 56, borderRadius: 20, border: 0, display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 8, fontSize: 16, fontWeight: 600, cursor: 'pointer', fontFamily: 'inherit' };
+    const filledBtn = { ...bigBtn, background: ACC, color: 'var(--kb-on-accent, #fff)' };
+    const tonalBtn = { ...bigBtn, ...cTonal };
 
     React.useEffect(() => {
         const onKey = (e) => { if (e.key === 'Escape') onClose(); };
@@ -644,9 +668,9 @@ const FocusPopupWidget = ({ onClose, anchorRect }) => {
 
     const renderStepper = (label, value, min, max, onSet) => (
         <div style={{ flex: 1, minWidth: 0 }}>
-            <label style={{ fontSize: 12, color: 'var(--kb-fg-2, #aab)', display: 'block', textAlign: 'center', marginBottom: 6 }}>{label}</label>
+            <label style={{ fontSize: 12, color: FG2, display: 'block', textAlign: 'center', marginBottom: 6 }}>{label}</label>
             <div style={{ display: 'flex', alignItems: 'center', background: cInset, borderRadius: 16, overflow: 'hidden' }}>
-                <button type="button" aria-label={`${label} −`} disabled={store.isFocusActive || value <= min} onClick={() => onSet(Math.max(min, value - 1))} style={{ ...stepBtn, ...dis(store.isFocusActive || value <= min) }}>
+                <button type="button" className="fm-btn" aria-label={`${label} −`} disabled={value <= min} onClick={() => onSet(Math.max(min, value - 1))} style={{ ...stepBtn, ...dis(value <= min) }}>
                     <span className="material-symbols-outlined" style={iconStyle(18)}>remove</span>
                 </button>
                 <input
@@ -654,7 +678,6 @@ const FocusPopupWidget = ({ onClose, anchorRect }) => {
                     inputMode="numeric"
                     pattern="[0-9]*"
                     aria-label={label}
-                    disabled={store.isFocusActive}
                     value={value !== undefined ? String(value).padStart(2, '0') : '00'}
                     onChange={(e) => {
                         let val = parseInt(e.target.value.replace(/\D/g, ''), 10);
@@ -664,116 +687,174 @@ const FocusPopupWidget = ({ onClose, anchorRect }) => {
                     className="no-drag-region"
                     style={stepInput}
                 />
-                <button type="button" aria-label={`${label} +`} disabled={store.isFocusActive || value >= max} onClick={() => onSet(Math.min(max, value + 1))} style={{ ...stepBtn, ...dis(store.isFocusActive || value >= max) }}>
+                <button type="button" className="fm-btn" aria-label={`${label} +`} disabled={value >= max} onClick={() => onSet(Math.min(max, value + 1))} style={{ ...stepBtn, ...dis(value >= max) }}>
                     <span className="material-symbols-outlined" style={iconStyle(18)}>add</span>
                 </button>
             </div>
         </div>
     );
 
-    const startDisabled = !store.isFocusActive && localMin === 0 && localSec === 0;
+    const startDisabled = !running && localMin === 0 && localSec === 0;
     const mainAction = () => {
-        if (!store.isFocusActive) { handleStart(); return; }
+        if (!running) { handleStart(); return; }
         if (store.isPaused) focusStore.resumeTimer(); else focusStore.pauseTimer();
     };
-    const mainIcon = store.isFocusActive && !store.isPaused ? 'pause' : 'play_arrow';
-    const mainLabel = !store.isFocusActive ? t('start') : (store.isPaused ? t('resume') : t('pause'));
+    const mainIcon = running && !store.isPaused ? 'pause' : 'play_arrow';
+    const mainLabel = !running ? t('start') : (store.isPaused ? t('resume') : t('pause'));
+    const PRESETS = [10, 25, 45, 60];
 
     return (
         <div
             ref={popupRef}
-            className="pointer-events-auto"
+            className="pointer-events-auto fm-panel"
+            role="dialog"
+            aria-label={t('focusMode')}
             style={{
                 ...getPopupStyle(),
                 boxSizing: 'border-box',
-                width: 320,
+                width: PANEL_W,
                 padding: 20,
                 borderRadius: 32,
                 background: 'var(--kb-bg-shell, var(--theme-bg-dark, #161922))',
                 border: '1px solid var(--kb-stroke-subtle, var(--theme-border))',
                 boxShadow: 'var(--kb-shadow-e3, 0 12px 32px rgba(0,0,0,.45))',
                 color: 'var(--kb-fg-1, #fff)',
-                overflow: 'visible'
+                overflow: 'visible',
+                fontFamily: 'var(--kb-font, inherit)'
             }}
         >
-            <div style={{ display: 'flex', alignItems: 'center', gap: 12, marginBottom: 16 }}>
+            <style>{FM_CSS}</style>
+            <div style={{ display: 'flex', alignItems: 'center', gap: 12, marginBottom: 12 }}>
                 <div style={{ ...cTonal, width: 44, height: 44, borderRadius: 15, display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>
-                    <span className="material-symbols-outlined" style={{ ...iconStyle(24, 1), color: 'var(--kb-accent, var(--theme-accent, currentColor))' }}>hourglass_top</span>
+                    <span className="material-symbols-outlined" style={{ ...iconStyle(24, 1), color: ACC }}>{ringing ? 'notifications_active' : 'hourglass_top'}</span>
                 </div>
                 <h3 style={{ flex: 1, minWidth: 0, margin: 0, fontSize: 19, fontWeight: 600, fontFamily: 'var(--kb-font-display, inherit)', textAlign: 'start' }}>{t('focusMode')}</h3>
-                <button type="button" onClick={onClose} aria-label={t('close')} style={{ ...circleBtn, width: 36, height: 36, borderRadius: 18 }}>
+                <button type="button" className="fm-btn" onClick={onClose} aria-label={t('close')} title={t('close')} style={{ ...cTonal, width: 36, height: 36, borderRadius: 18, border: 0, display: 'flex', alignItems: 'center', justifyContent: 'center', cursor: 'pointer' }}>
                     <span className="material-symbols-outlined" style={iconStyle(20)}>close</span>
                 </button>
             </div>
 
-            <div style={{ position: 'relative', width: ringSize, height: ringSize, margin: '0 auto 20px' }}>
+            <div role="timer" aria-live="off" style={{ position: 'relative', width: ringSize, height: ringSize, margin: '0 auto 16px' }}>
                 <svg width={ringSize} height={ringSize} viewBox={`0 0 ${ringSize} ${ringSize}`} style={{ transform: 'rotate(-90deg)', display: 'block' }} aria-hidden="true">
                     <circle cx={ringSize / 2} cy={ringSize / 2} r={ringR} fill="none" stroke="var(--kb-ring-track, rgba(255,255,255,.14))" strokeWidth={ringStroke} />
-                    <circle cx={ringSize / 2} cy={ringSize / 2} r={ringR} fill="none" stroke="var(--kb-accent, var(--theme-accent, #7c9cff))" strokeWidth={ringStroke} strokeLinecap="round" strokeDasharray={ringC} strokeDashoffset={ringC * (1 - progress)} />
+                    <circle cx={ringSize / 2} cy={ringSize / 2} r={ringR} fill="none" stroke={ACC} strokeWidth={ringStroke} strokeLinecap="round" strokeDasharray={ringC} strokeDashoffset={ringC * (1 - progress)} />
                 </svg>
                 <div style={{ position: 'absolute', inset: 0, display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center' }}>
-                    <span style={{ fontFamily: 'var(--kb-font-display, inherit)', fontSize: 48, fontWeight: 600, fontVariantNumeric: 'tabular-nums', lineHeight: 1 }}>{formatClock(shownSeconds)}</span>
-                    {store.isPaused && <span style={{ fontSize: 12, color: 'var(--kb-fg-2, #aab)', marginTop: 6 }}>{t('pause')}</span>}
+                    <span style={{ fontFamily: 'var(--kb-font-display, inherit)', fontSize: 44, fontWeight: 600, fontVariantNumeric: 'tabular-nums', lineHeight: 1 }}>{formatClock(ringing ? 0 : shownSeconds)}</span>
+                    <span style={{ fontSize: 12, color: FG2, marginTop: 6 }}>{ringCaption}</span>
                 </div>
             </div>
 
-            <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 20, marginBottom: 20 }}>
-                <button type="button" aria-label={t('stop')} disabled={!store.isFocusActive} onClick={() => { focusStore.stopTimer(); onClose(); }} style={{ ...circleBtn, ...dis(!store.isFocusActive) }}>
-                    <span className="material-symbols-outlined" style={iconStyle(22)}>stop</span>
-                </button>
-                <button type="button" aria-label={mainLabel} title={mainLabel} disabled={startDisabled} onClick={mainAction} style={{ width: 72, height: 72, borderRadius: 28, border: 0, background: 'var(--kb-accent, var(--theme-accent, #7c9cff))', color: 'var(--kb-on-accent, #fff)', display: 'flex', alignItems: 'center', justifyContent: 'center', cursor: 'pointer', ...dis(startDisabled) }}>
-                    <span className="material-symbols-outlined" style={iconStyle(36, 1)}>{mainIcon}</span>
-                </button>
-                <button type="button" aria-label={isPlayingPreview ? t('stop') : t('ambience')} disabled={store.isFocusActive} onClick={togglePreview} style={{ ...circleBtn, ...dis(store.isFocusActive) }}>
-                    <span className="material-symbols-outlined" style={iconStyle(22)}>{isPlayingPreview ? 'volume_off' : 'volume_up'}</span>
-                </button>
-            </div>
-
-            <div style={{ background: 'var(--kb-bg-surface, var(--theme-surface))', borderRadius: 24, padding: 16 }}>
-                <div style={{ display: 'flex', gap: 8, marginBottom: 16, minWidth: 0 }}>
-                    {renderStepper(t('minutes'), localMin, 0, 120, (v) => setLocalMin(v))}
-                    {renderStepper(t('seconds'), localSec, 0, 59, (v) => setLocalSec(v))}
-                </div>
-
-                <div style={{ fontSize: 12, color: 'var(--kb-fg-2, #aab)', marginBottom: 8 }}>{t('ambience')}</div>
-                <div role="radiogroup" aria-label={t('ambience')} style={{ display: 'flex', flexWrap: 'wrap', gap: 6, marginBottom: 16 }}>
-                    {MELODIES.map((m) => {
-                        const selected = m === localMelody;
-                        return (
-                            <button
-                                key={m}
-                                type="button"
-                                role="radio"
-                                aria-checked={selected}
-                                disabled={store.isFocusActive}
-                                onClick={() => { setLocalMelody(m); stopPreview(); }}
-                                style={{ height: 32, padding: '0 12px', borderRadius: 10, border: 0, fontSize: 13, cursor: 'pointer', display: 'inline-flex', alignItems: 'center', background: selected ? 'var(--kb-bg-container, var(--theme-accent-glow, rgba(255,255,255,.1)))' : 'var(--kb-bg-tile, var(--theme-surface, #242833))', color: selected ? 'var(--kb-on-container, #fff)' : 'var(--kb-fg-2, #aab)', fontWeight: selected ? 600 : 400, ...dis(store.isFocusActive) }}
-                            >
-                                {selected && <span className="material-symbols-outlined" style={{ ...iconStyle(16, 1), marginInlineEnd: 4 }}>check</span>}
-                                {m}
-                            </button>
-                        );
-                    })}
-                </div>
-
-                <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
-                    <span style={{ fontSize: 14, fontWeight: 500 }}>{t('loop')}</span>
-                    <button
-                        type="button"
-                        role="switch"
-                        aria-checked={localLoop}
-                        aria-label={t('loop')}
-                        onClick={() => !store.isFocusActive && setLocalLoop(!localLoop)}
-                        disabled={store.isFocusActive}
-                        className="no-drag-region"
-                        style={{ width: 52, height: 32, borderRadius: 16, border: localLoop ? 0 : '2px solid var(--kb-fg-3, #889)', boxSizing: 'border-box', padding: 0, position: 'relative', cursor: 'pointer', background: localLoop ? 'var(--kb-accent, var(--theme-accent, #7c9cff))' : 'var(--kb-bg-inset, rgba(255,255,255,.18))', ...dis(store.isFocusActive) }}
-                    >
-                        <span style={{ position: 'absolute', top: '50%', marginTop: localLoop ? -12 : -8, insetInlineStart: localLoop ? 24 : 4, width: localLoop ? 24 : 16, height: localLoop ? 24 : 16, borderRadius: 12, background: localLoop ? 'var(--kb-on-accent, #fff)' : 'var(--kb-fg-3, #889)', transition: 'inset-inline-start 120ms, width 120ms, height 120ms, margin-top 120ms', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'var(--kb-accent, var(--theme-accent, #7c9cff))' }}>
-                            {localLoop && <span className="material-symbols-outlined" style={iconStyle(16, 1)}>check</span>}
-                        </span>
+            {ringing && (
+                <div style={{ display: 'flex', flexDirection: 'column', gap: 12 }}>
+                    <div style={{ textAlign: 'center', fontSize: 14, color: FG2 }}>{t('sessionDoneDesc')}</div>
+                    <button type="button" className="fm-btn" onClick={() => focusStore.stopAlarm()} style={filledBtn}>
+                        <span className="material-symbols-outlined" style={iconStyle(24, 1)}>notifications_off</span>
+                        {t('stopAlarm')}
+                    </button>
+                    <button type="button" className="fm-btn" onClick={() => { focusStore.stopAlarm(); focusStore.startTimer(); onClose(); }} style={tonalBtn}>
+                        <span className="material-symbols-outlined" style={iconStyle(22)}>replay</span>
+                        {t('startAgain')}
                     </button>
                 </div>
-            </div>
+            )}
+
+            {!ringing && running && (
+                <div style={{ display: 'flex', flexDirection: 'column', gap: 12 }}>
+                    <div style={{ display: 'flex', gap: 12 }}>
+                        <button type="button" className="fm-btn" aria-label={mainLabel} onClick={mainAction} style={{ ...filledBtn, flex: 1 }}>
+                            <span className="material-symbols-outlined" style={iconStyle(26, 1)}>{mainIcon}</span>
+                            {mainLabel}
+                        </button>
+                        <button type="button" className="fm-btn" aria-label={t('stop')} title={t('stop')} onClick={() => { focusStore.stopTimer(); onClose(); }} style={{ ...tonalBtn, width: 56, flex: 'none' }}>
+                            <span className="material-symbols-outlined" style={iconStyle(24, 1)}>stop</span>
+                        </button>
+                    </div>
+                    <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 8, fontSize: 13, color: FG2 }}>
+                        <span className="material-symbols-outlined" style={iconStyle(18)}>music_note</span>
+                        <span>{localMelody}</span>
+                        {localLoop && (<><span aria-hidden="true">·</span><span className="material-symbols-outlined" style={iconStyle(18)}>repeat</span><span>{t('loop')}</span></>)}
+                    </div>
+                </div>
+            )}
+
+            {!ringing && !running && (
+                <div style={{ display: 'flex', flexDirection: 'column', gap: 16 }}>
+                    <div role="group" aria-label={t('duration')} style={{ display: 'flex', justifyContent: 'center', gap: 6, flexWrap: 'wrap' }}>
+                        {PRESETS.map((p) => {
+                            const selected = localMin === p && localSec === 0;
+                            return (
+                                <button
+                                    key={p}
+                                    type="button"
+                                    className="fm-btn"
+                                    aria-pressed={selected}
+                                    onClick={() => focusStore.setState({ focusSettings: { ...store.focusSettings, minutes: p, seconds: 0 } })}
+                                    style={{ height: 32, padding: '0 12px', borderRadius: 10, border: 0, fontSize: 13, cursor: 'pointer', display: 'inline-flex', alignItems: 'center', fontVariantNumeric: 'tabular-nums', fontFamily: 'inherit', background: selected ? cTonal.background : 'transparent', color: selected ? cTonal.color : FG2, fontWeight: selected ? 600 : 400, boxShadow: selected ? 'none' : 'inset 0 0 0 1px var(--kb-stroke-control, rgba(255,255,255,.3))' }}
+                                >
+                                    {selected && <span className="material-symbols-outlined" style={{ ...iconStyle(16, 1), marginInlineEnd: 4, color: ACC }}>check</span>}
+                                    {p} {t('minShort')}
+                                </button>
+                            );
+                        })}
+                    </div>
+
+                    <button type="button" className="fm-btn" aria-label={mainLabel} disabled={startDisabled} onClick={mainAction} style={{ ...filledBtn, ...dis(startDisabled) }}>
+                        <span className="material-symbols-outlined" style={iconStyle(26, 1)}>play_arrow</span>
+                        {t('start')}
+                    </button>
+
+                    <div style={{ background: 'var(--kb-bg-surface, var(--theme-surface))', borderRadius: 24, padding: 16 }}>
+                        <div style={{ display: 'flex', gap: 8, marginBottom: 16, minWidth: 0 }}>
+                            {renderStepper(t('minutes'), localMin, 0, 120, (v) => setLocalMin(v))}
+                            {renderStepper(t('seconds'), localSec, 0, 59, (v) => setLocalSec(v))}
+                        </div>
+
+                        <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: 8 }}>
+                            <span style={{ fontSize: 12, color: FG2 }}>{t('ambience')}</span>
+                            <button type="button" className="fm-btn" aria-label={isPlayingPreview ? t('stop') : t('ambience')} title={isPlayingPreview ? t('stop') : t('ambience')} onClick={togglePreview} style={{ ...cTonal, width: 32, height: 32, borderRadius: 16, border: 0, display: 'flex', alignItems: 'center', justifyContent: 'center', cursor: 'pointer' }}>
+                                <span className="material-symbols-outlined" style={iconStyle(18)}>{isPlayingPreview ? 'volume_off' : 'volume_up'}</span>
+                            </button>
+                        </div>
+                        <div role="radiogroup" aria-label={t('ambience')} style={{ display: 'flex', flexWrap: 'wrap', gap: 6, marginBottom: 16 }}>
+                            {MELODIES.map((m) => {
+                                const selected = m === localMelody;
+                                return (
+                                    <button
+                                        key={m}
+                                        type="button"
+                                        role="radio"
+                                        className="fm-btn"
+                                        aria-checked={selected}
+                                        onClick={() => { setLocalMelody(m); stopPreview(); }}
+                                        style={{ height: 32, padding: '0 12px', borderRadius: 10, border: 0, fontSize: 13, cursor: 'pointer', display: 'inline-flex', alignItems: 'center', fontFamily: 'inherit', background: selected ? 'var(--kb-bg-container, var(--theme-accent-glow, rgba(255,255,255,.1)))' : 'var(--kb-bg-tile, var(--theme-surface, #242833))', color: selected ? 'var(--kb-on-container, #fff)' : FG2, fontWeight: selected ? 600 : 400 }}
+                                    >
+                                        {selected && <span className="material-symbols-outlined" style={{ ...iconStyle(16, 1), marginInlineEnd: 4 }}>check</span>}
+                                        {m}
+                                    </button>
+                                );
+                            })}
+                        </div>
+
+                        <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
+                            <span style={{ fontSize: 14, fontWeight: 500 }}>{t('loop')}</span>
+                            <button
+                                type="button"
+                                role="switch"
+                                className="fm-btn"
+                                aria-checked={localLoop}
+                                aria-label={t('loop')}
+                                onClick={() => setLocalLoop(!localLoop)}
+                                style={{ width: 52, height: 32, borderRadius: 16, border: localLoop ? 0 : '2px solid var(--kb-fg-3, #889)', boxSizing: 'border-box', padding: 0, position: 'relative', cursor: 'pointer', background: localLoop ? ACC : 'var(--kb-bg-inset, rgba(255,255,255,.18))' }}
+                            >
+                                <span style={{ position: 'absolute', top: '50%', marginTop: localLoop ? -12 : -8, insetInlineStart: localLoop ? 24 : 4, width: localLoop ? 24 : 16, height: localLoop ? 24 : 16, borderRadius: 12, background: localLoop ? 'var(--kb-on-accent, #fff)' : 'var(--kb-fg-3, #889)', transition: 'inset-inline-start 120ms, width 120ms, height 120ms, margin-top 120ms', display: 'flex', alignItems: 'center', justifyContent: 'center', color: ACC }}>
+                                    {localLoop && <span className="material-symbols-outlined" style={iconStyle(16, 1)}>check</span>}
+                                </span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            )}
         </div>
     );
 };
