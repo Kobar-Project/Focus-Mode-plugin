@@ -217,6 +217,7 @@ const barApi = () => {
 let barVisible = true;
 let barLastKey = '';
 let barLastAt = 0;
+let barTrailing = null;
 
 const compactValue = (seconds) => (
     seconds >= 6000
@@ -232,7 +233,12 @@ const pushBarState = (force) => {
     const lang = useAppStore.getState().language || 'en';
     const key = `${s.isAlarmRinging}|${s.isFocusActive}|${s.isPaused}|${rem}|${lang}|${s.focusSettings.minutes}:${s.focusSettings.seconds}`;
     const now = Date.now();
-    if (!force && (key === barLastKey || now - barLastAt < 900)) return;
+    if (!force && key === barLastKey) return;
+    if (!force && now - barLastAt < 900) {
+        // Throttled: schedule a trailing push so the last change (for example a fast run of + clicks) is not lost while idle.
+        if (!barTrailing) barTrailing = setTimeout(() => { barTrailing = null; pushBarState(false); }, 950 - (now - barLastAt));
+        return;
+    }
     barLastKey = key;
     barLastAt = now;
     const tr = (k) => getLocalText(k);

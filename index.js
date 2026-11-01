@@ -373,6 +373,7 @@
   let barVisible = true;
   let barLastKey = "";
   let barLastAt = 0;
+  let barTrailing = null;
   const compactValue = (seconds) => seconds >= 6e3 ? `${Math.floor(seconds / 3600)}h${pad2(Math.floor(seconds % 3600 / 60))}` : formatClock(seconds);
   const pushBarState = (force) => {
     const ext = barApi();
@@ -382,7 +383,14 @@
     const lang = useAppStore.getState().language || "en";
     const key = `${s.isAlarmRinging}|${s.isFocusActive}|${s.isPaused}|${rem}|${lang}|${s.focusSettings.minutes}:${s.focusSettings.seconds}`;
     const now = Date.now();
-    if (!force && (key === barLastKey || now - barLastAt < 900)) return;
+    if (!force && key === barLastKey) return;
+    if (!force && now - barLastAt < 900) {
+      if (!barTrailing) barTrailing = setTimeout(() => {
+        barTrailing = null;
+        pushBarState(false);
+      }, 950 - (now - barLastAt));
+      return;
+    }
     barLastKey = key;
     barLastAt = now;
     const tr = (k) => getLocalText(k);
