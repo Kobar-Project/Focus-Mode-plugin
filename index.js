@@ -300,7 +300,7 @@
     const s = focusStore.getState();
     const rem = s.focusRemainingTime;
     const lang = useAppStore.getState().language || "en";
-    const key = `${s.isFocusActive}|${s.isPaused}|${rem}|${lang}`;
+    const key = `${s.isFocusActive}|${s.isPaused}|${rem}|${lang}|${s.focusSettings.minutes}:${s.focusSettings.seconds}`;
     const now = Date.now();
     if (!force && (key === barLastKey || now - barLastAt < 900)) return;
     barLastKey = key;
@@ -321,7 +321,10 @@
         icon: s.isPaused ? "pause" : void 0
       };
     } else {
+      const cfg = s.focusSettings || {};
+      const idleTotal = (cfg.minutes || 0) * 60 + (cfg.seconds || 0);
       state = { label: tr("focusMode"), progress: 0 };
+      if (idleTotal > 0) state.value = compactValue(idleTotal);
     }
     try {
       ext.setBarItemState(BAR_ID, state);
@@ -714,7 +717,7 @@
           overflow: "visible"
         }
       },
-      /* @__PURE__ */ window.React.createElement("div", { style: { display: "flex", alignItems: "center", gap: 12, marginBottom: 16 } }, /* @__PURE__ */ window.React.createElement("div", { style: { ...cTonal, width: 44, height: 44, borderRadius: 15, display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0 } }, /* @__PURE__ */ window.React.createElement("span", { className: "material-symbols-outlined", style: { ...iconStyle(24, 1), color: "var(--kb-accent, var(--theme-accent, currentColor))" } }, "hourglass_top")), /* @__PURE__ */ window.React.createElement("h3", { style: { flex: 1, minWidth: 0, margin: 0, fontSize: 19, fontWeight: 600, fontFamily: "var(--kb-font-display, inherit)", textAlign: "start", overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap" } }, t("focusMode")), /* @__PURE__ */ window.React.createElement("button", { type: "button", onClick: onClose, "aria-label": t("close"), style: { ...circleBtn, width: 36, height: 36, borderRadius: 18, background: cInset, color: "var(--kb-fg-1, #fff)" } }, /* @__PURE__ */ window.React.createElement("span", { className: "material-symbols-outlined", style: iconStyle(20) }, "close"))),
+      /* @__PURE__ */ window.React.createElement("div", { style: { display: "flex", alignItems: "center", gap: 12, marginBottom: 16 } }, /* @__PURE__ */ window.React.createElement("div", { style: { ...cTonal, width: 44, height: 44, borderRadius: 15, display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0 } }, /* @__PURE__ */ window.React.createElement("span", { className: "material-symbols-outlined", style: { ...iconStyle(24, 1), color: "var(--kb-accent, var(--theme-accent, currentColor))" } }, "hourglass_top")), /* @__PURE__ */ window.React.createElement("h3", { style: { flex: 1, minWidth: 0, margin: 0, fontSize: 19, fontWeight: 600, fontFamily: "var(--kb-font-display, inherit)", textAlign: "start" } }, t("focusMode")), /* @__PURE__ */ window.React.createElement("button", { type: "button", onClick: onClose, "aria-label": t("close"), style: { ...circleBtn, width: 36, height: 36, borderRadius: 18 } }, /* @__PURE__ */ window.React.createElement("span", { className: "material-symbols-outlined", style: iconStyle(20) }, "close"))),
       /* @__PURE__ */ window.React.createElement("div", { style: { position: "relative", width: ringSize, height: ringSize, margin: "0 auto 20px" } }, /* @__PURE__ */ window.React.createElement("svg", { width: ringSize, height: ringSize, viewBox: `0 0 ${ringSize} ${ringSize}`, style: { transform: "rotate(-90deg)", display: "block" }, "aria-hidden": "true" }, /* @__PURE__ */ window.React.createElement("circle", { cx: ringSize / 2, cy: ringSize / 2, r: ringR, fill: "none", stroke: "var(--kb-ring-track, rgba(255,255,255,.14))", strokeWidth: ringStroke }), /* @__PURE__ */ window.React.createElement("circle", { cx: ringSize / 2, cy: ringSize / 2, r: ringR, fill: "none", stroke: "var(--kb-accent, var(--theme-accent, #7c9cff))", strokeWidth: ringStroke, strokeLinecap: "round", strokeDasharray: ringC, strokeDashoffset: ringC * (1 - progress) })), /* @__PURE__ */ window.React.createElement("div", { style: { position: "absolute", inset: 0, display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center" } }, /* @__PURE__ */ window.React.createElement("span", { style: { fontFamily: "var(--kb-font-display, inherit)", fontSize: 48, fontWeight: 600, fontVariantNumeric: "tabular-nums", lineHeight: 1 } }, formatClock(shownSeconds)), store.isPaused && /* @__PURE__ */ window.React.createElement("span", { style: { fontSize: 12, color: "var(--kb-fg-2, #aab)", marginTop: 6 } }, t("pause")))),
       /* @__PURE__ */ window.React.createElement("div", { style: { display: "flex", alignItems: "center", justifyContent: "center", gap: 20, marginBottom: 20 } }, /* @__PURE__ */ window.React.createElement("button", { type: "button", "aria-label": t("stop"), disabled: !store.isFocusActive, onClick: () => {
         focusStore.stopTimer();
@@ -734,8 +737,9 @@
               setLocalMelody(m);
               stopPreview();
             },
-            style: { height: 32, padding: "0 12px", borderRadius: 10, border: 0, fontSize: 13, cursor: "pointer", background: selected ? "var(--kb-bg-container, var(--theme-accent-glow, rgba(255,255,255,.1)))" : "var(--kb-bg-tile, var(--theme-surface, #242833))", color: selected ? "var(--kb-on-container, #fff)" : "var(--kb-fg-2, #aab)", fontWeight: selected ? 600 : 400, ...dis(store.isFocusActive) }
+            style: { height: 32, padding: "0 12px", borderRadius: 10, border: 0, fontSize: 13, cursor: "pointer", display: "inline-flex", alignItems: "center", background: selected ? "var(--kb-bg-container, var(--theme-accent-glow, rgba(255,255,255,.1)))" : "var(--kb-bg-tile, var(--theme-surface, #242833))", color: selected ? "var(--kb-on-container, #fff)" : "var(--kb-fg-2, #aab)", fontWeight: selected ? 600 : 400, ...dis(store.isFocusActive) }
           },
+          selected && /* @__PURE__ */ window.React.createElement("span", { className: "material-symbols-outlined", style: { ...iconStyle(16, 1), marginInlineEnd: 4 } }, "check"),
           m
         );
       })), /* @__PURE__ */ window.React.createElement("div", { style: { display: "flex", alignItems: "center", justifyContent: "space-between" } }, /* @__PURE__ */ window.React.createElement("span", { style: { fontSize: 14, fontWeight: 500 } }, t("loop")), /* @__PURE__ */ window.React.createElement(
@@ -748,9 +752,9 @@
           onClick: () => !store.isFocusActive && setLocalLoop(!localLoop),
           disabled: store.isFocusActive,
           className: "no-drag-region",
-          style: { width: 44, height: 26, borderRadius: 13, border: 0, position: "relative", cursor: "pointer", background: localLoop ? "var(--kb-accent, var(--theme-accent, #7c9cff))" : "var(--kb-bg-inset, rgba(255,255,255,.18))", ...dis(store.isFocusActive) }
+          style: { width: 52, height: 32, borderRadius: 16, border: localLoop ? 0 : "2px solid var(--kb-fg-3, #889)", boxSizing: "border-box", padding: 0, position: "relative", cursor: "pointer", background: localLoop ? "var(--kb-accent, var(--theme-accent, #7c9cff))" : "var(--kb-bg-inset, rgba(255,255,255,.18))", ...dis(store.isFocusActive) }
         },
-        /* @__PURE__ */ window.React.createElement("span", { style: { position: "absolute", top: 3, left: localLoop ? 21 : 3, width: 20, height: 20, borderRadius: 10, background: localLoop ? "var(--kb-on-accent, #fff)" : "var(--kb-fg-2, #ccd)", transition: "left 120ms" } })
+        /* @__PURE__ */ window.React.createElement("span", { style: { position: "absolute", top: "50%", marginTop: localLoop ? -12 : -8, insetInlineStart: localLoop ? 24 : 4, width: localLoop ? 24 : 16, height: localLoop ? 24 : 16, borderRadius: 12, background: localLoop ? "var(--kb-on-accent, #fff)" : "var(--kb-fg-3, #889)", transition: "inset-inline-start 120ms, width 120ms, height 120ms, margin-top 120ms", display: "flex", alignItems: "center", justifyContent: "center", color: "var(--kb-accent, var(--theme-accent, #7c9cff))" } }, localLoop && /* @__PURE__ */ window.React.createElement("span", { className: "material-symbols-outlined", style: iconStyle(16, 1) }, "check"))
       )))
     );
   };

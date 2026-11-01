@@ -220,7 +220,7 @@ const pushBarState = (force) => {
     const s = focusStore.getState();
     const rem = s.focusRemainingTime;
     const lang = useAppStore.getState().language || 'en';
-    const key = `${s.isFocusActive}|${s.isPaused}|${rem}|${lang}`;
+    const key = `${s.isFocusActive}|${s.isPaused}|${rem}|${lang}|${s.focusSettings.minutes}:${s.focusSettings.seconds}`;
     const now = Date.now();
     if (!force && (key === barLastKey || now - barLastAt < 900)) return;
     barLastKey = key;
@@ -241,7 +241,10 @@ const pushBarState = (force) => {
             icon: s.isPaused ? 'pause' : undefined
         };
     } else {
+        const cfg = s.focusSettings || {};
+        const idleTotal = ((cfg.minutes || 0) * 60) + (cfg.seconds || 0);
         state = { label: tr('focusMode'), progress: 0 };
+        if (idleTotal > 0) state.value = compactValue(idleTotal);
     }
     try { ext.setBarItemState(BAR_ID, state); } catch (e) { /* tile API is optional */ }
 };
@@ -697,8 +700,8 @@ const FocusPopupWidget = ({ onClose, anchorRect }) => {
                 <div style={{ ...cTonal, width: 44, height: 44, borderRadius: 15, display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>
                     <span className="material-symbols-outlined" style={{ ...iconStyle(24, 1), color: 'var(--kb-accent, var(--theme-accent, currentColor))' }}>hourglass_top</span>
                 </div>
-                <h3 style={{ flex: 1, minWidth: 0, margin: 0, fontSize: 19, fontWeight: 600, fontFamily: 'var(--kb-font-display, inherit)', textAlign: 'start', overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>{t('focusMode')}</h3>
-                <button type="button" onClick={onClose} aria-label={t('close')} style={{ ...circleBtn, width: 36, height: 36, borderRadius: 18, background: cInset, color: 'var(--kb-fg-1, #fff)' }}>
+                <h3 style={{ flex: 1, minWidth: 0, margin: 0, fontSize: 19, fontWeight: 600, fontFamily: 'var(--kb-font-display, inherit)', textAlign: 'start' }}>{t('focusMode')}</h3>
+                <button type="button" onClick={onClose} aria-label={t('close')} style={{ ...circleBtn, width: 36, height: 36, borderRadius: 18 }}>
                     <span className="material-symbols-outlined" style={iconStyle(20)}>close</span>
                 </button>
             </div>
@@ -744,8 +747,9 @@ const FocusPopupWidget = ({ onClose, anchorRect }) => {
                                 aria-checked={selected}
                                 disabled={store.isFocusActive}
                                 onClick={() => { setLocalMelody(m); stopPreview(); }}
-                                style={{ height: 32, padding: '0 12px', borderRadius: 10, border: 0, fontSize: 13, cursor: 'pointer', background: selected ? 'var(--kb-bg-container, var(--theme-accent-glow, rgba(255,255,255,.1)))' : 'var(--kb-bg-tile, var(--theme-surface, #242833))', color: selected ? 'var(--kb-on-container, #fff)' : 'var(--kb-fg-2, #aab)', fontWeight: selected ? 600 : 400, ...dis(store.isFocusActive) }}
+                                style={{ height: 32, padding: '0 12px', borderRadius: 10, border: 0, fontSize: 13, cursor: 'pointer', display: 'inline-flex', alignItems: 'center', background: selected ? 'var(--kb-bg-container, var(--theme-accent-glow, rgba(255,255,255,.1)))' : 'var(--kb-bg-tile, var(--theme-surface, #242833))', color: selected ? 'var(--kb-on-container, #fff)' : 'var(--kb-fg-2, #aab)', fontWeight: selected ? 600 : 400, ...dis(store.isFocusActive) }}
                             >
+                                {selected && <span className="material-symbols-outlined" style={{ ...iconStyle(16, 1), marginInlineEnd: 4 }}>check</span>}
                                 {m}
                             </button>
                         );
@@ -762,9 +766,11 @@ const FocusPopupWidget = ({ onClose, anchorRect }) => {
                         onClick={() => !store.isFocusActive && setLocalLoop(!localLoop)}
                         disabled={store.isFocusActive}
                         className="no-drag-region"
-                        style={{ width: 44, height: 26, borderRadius: 13, border: 0, position: 'relative', cursor: 'pointer', background: localLoop ? 'var(--kb-accent, var(--theme-accent, #7c9cff))' : 'var(--kb-bg-inset, rgba(255,255,255,.18))', ...dis(store.isFocusActive) }}
+                        style={{ width: 52, height: 32, borderRadius: 16, border: localLoop ? 0 : '2px solid var(--kb-fg-3, #889)', boxSizing: 'border-box', padding: 0, position: 'relative', cursor: 'pointer', background: localLoop ? 'var(--kb-accent, var(--theme-accent, #7c9cff))' : 'var(--kb-bg-inset, rgba(255,255,255,.18))', ...dis(store.isFocusActive) }}
                     >
-                        <span style={{ position: 'absolute', top: 3, left: localLoop ? 21 : 3, width: 20, height: 20, borderRadius: 10, background: localLoop ? 'var(--kb-on-accent, #fff)' : 'var(--kb-fg-2, #ccd)', transition: 'left 120ms' }} />
+                        <span style={{ position: 'absolute', top: '50%', marginTop: localLoop ? -12 : -8, insetInlineStart: localLoop ? 24 : 4, width: localLoop ? 24 : 16, height: localLoop ? 24 : 16, borderRadius: 12, background: localLoop ? 'var(--kb-on-accent, #fff)' : 'var(--kb-fg-3, #889)', transition: 'inset-inline-start 120ms, width 120ms, height 120ms, margin-top 120ms', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'var(--kb-accent, var(--theme-accent, #7c9cff))' }}>
+                            {localLoop && <span className="material-symbols-outlined" style={iconStyle(16, 1)}>check</span>}
+                        </span>
                     </button>
                 </div>
             </div>
