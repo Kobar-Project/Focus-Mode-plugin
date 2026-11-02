@@ -1,7 +1,7 @@
 {
   "id": "focus-mode-plugin",
   "name": "Focus Mode",
-  "version": "1.0.4",
+  "version": "1.1.0",
   "description": "Pomodoro-style focus timer to boost your productivity. (Plugin Edition)",
   "author": "KoBar",
   "entry": "index.js",
@@ -24,7 +24,7 @@
     "ru",
     "tr"
   ],
-  "versionNote": "Panel content is centred and no longer pushed to the right.",
+  "versionNote": "New design for KoBar 1.5: progress ring, 10/25/45/60 min presets, pause and resume; the bar tile shows the remaining time.",
   "image": "https://raw.githubusercontent.com/Kobar-Project/KoBar-Assets/main/Plugins%20images/Focus%20Mode/focusmode.png",
   "storeImage": [
     "https://raw.githubusercontent.com/Kobar-Project/KoBar-Assets/main/Plugins%20images/Focus%20Mode/Focus-Mode1.png",
